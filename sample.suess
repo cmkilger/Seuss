@@ -1,0 +1,8 @@
+Write "Hello
+World.".
+Read name.
+
+Define function add (first number) to (second number):
+	Return first number + second number.
+End function.
+

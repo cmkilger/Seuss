@@ -10,6 +10,13 @@
 		9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD2D15A80BB300CF9849 /* Foundation.framework */; };
 		9ABEAD3115A80BB300CF9849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* main.m */; };
 		9ABEAD3515A80BB300CF9849 /* suess.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* suess.1 */; };
+		9ABEAD4615AA99BC00CF9849 /* SUTokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */; };
+		9ABEAD4A15AC02ED00CF9849 /* SUSyntaxTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4915AC02ED00CF9849 /* SUSyntaxTree.c */; };
+		9ABEAD4D15AC1A3C00CF9849 /* SUList.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4C15AC1A3C00CF9849 /* SUList.c */; };
+		9ABEAD5415AD275900CF9849 /* SUType.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5315AD275900CF9849 /* SUType.c */; };
+		9ABEAD5A15AD552700CF9849 /* SUIterator.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5915AD552700CF9849 /* SUIterator.c */; };
+		9ABEAD6215AEBCB300CF9849 /* SUString.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6115AEBCB200CF9849 /* SUString.c */; };
+		9ABEAD6515AFED2F00CF9849 /* SUFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6415AFED2E00CF9849 /* SUFunction.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +36,26 @@
 		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9ABEAD3315A80BB300CF9849 /* suess-Prefix.pch */ = {isa = PBXFileReference; path = "suess-Prefix.pch"; sourceTree = "<group>"; };
+		9ABEAD3315A80BB300CF9849 /* suess-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "suess-Prefix.pch"; sourceTree = "<group>"; };
 		9ABEAD3415A80BB300CF9849 /* suess.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = suess.1; sourceTree = "<group>"; };
+		9ABEAD3B15A80C0200CF9849 /* sample.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.suess; sourceTree = SOURCE_ROOT; };
+		9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUTokenizer.c; sourceTree = "<group>"; };
+		9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTokenizer.h; sourceTree = "<group>"; };
+		9ABEAD4815AC02DF00CF9849 /* SUSyntaxTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUSyntaxTree.h; sourceTree = "<group>"; };
+		9ABEAD4915AC02ED00CF9849 /* SUSyntaxTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUSyntaxTree.c; sourceTree = "<group>"; };
+		9ABEAD4B15AC1A2C00CF9849 /* SUList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUList.h; sourceTree = "<group>"; };
+		9ABEAD4C15AC1A3C00CF9849 /* SUList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUList.c; sourceTree = "<group>"; };
+		9ABEAD5215AD274D00CF9849 /* SUType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUType.h; sourceTree = "<group>"; };
+		9ABEAD5315AD275900CF9849 /* SUType.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUType.c; sourceTree = "<group>"; };
+		9ABEAD5515AD2A4100CF9849 /* SUTypeInternal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTypeInternal.h; sourceTree = "<group>"; };
+		9ABEAD5815AD551800CF9849 /* SUIterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUIterator.h; sourceTree = "<group>"; };
+		9ABEAD5915AD552700CF9849 /* SUIterator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUIterator.c; sourceTree = "<group>"; };
+		9ABEAD5B15AEB0AB00CF9849 /* SUListInternal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUListInternal.h; sourceTree = "<group>"; };
+		9ABEAD5C15AEB6BF00CF9849 /* SUIteratorInternal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUIteratorInternal.h; sourceTree = "<group>"; };
+		9ABEAD6015AEBC6F00CF9849 /* SUString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUString.h; sourceTree = "<group>"; };
+		9ABEAD6115AEBCB200CF9849 /* SUString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUString.c; sourceTree = "<group>"; };
+		9ABEAD6315AFED2000CF9849 /* SUFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUFunction.h; sourceTree = "<group>"; };
+		9ABEAD6415AFED2E00CF9849 /* SUFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUFunction.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				9ABEAD3015A80BB300CF9849 /* main.m */,
+				9ABEAD4415A8175700CF9849 /* Parser */,
 				9ABEAD3415A80BB300CF9849 /* suess.1 */,
 				9ABEAD3215A80BB300CF9849 /* Supporting Files */,
+				9ABEAD3B15A80C0200CF9849 /* sample.suess */,
 			);
 			path = suess;
 			sourceTree = "<group>";
@@ -86,6 +113,54 @@
 				9ABEAD3315A80BB300CF9849 /* suess-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9ABEAD4415A8175700CF9849 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEAD5D15AEBB2700CF9849 /* Public */,
+				9ABEAD5E15AEBB3200CF9849 /* Internal */,
+				9ABEAD5F15AEBB3A00CF9849 /* Source */,
+			);
+			name = Parser;
+			sourceTree = "<group>";
+		};
+		9ABEAD5D15AEBB2700CF9849 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEAD5215AD274D00CF9849 /* SUType.h */,
+				9ABEAD4815AC02DF00CF9849 /* SUSyntaxTree.h */,
+				9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */,
+				9ABEAD4B15AC1A2C00CF9849 /* SUList.h */,
+				9ABEAD5815AD551800CF9849 /* SUIterator.h */,
+				9ABEAD6015AEBC6F00CF9849 /* SUString.h */,
+				9ABEAD6315AFED2000CF9849 /* SUFunction.h */,
+			);
+			name = Public;
+			sourceTree = "<group>";
+		};
+		9ABEAD5E15AEBB3200CF9849 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEAD5515AD2A4100CF9849 /* SUTypeInternal.h */,
+				9ABEAD5B15AEB0AB00CF9849 /* SUListInternal.h */,
+				9ABEAD5C15AEB6BF00CF9849 /* SUIteratorInternal.h */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		9ABEAD5F15AEBB3A00CF9849 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEAD5315AD275900CF9849 /* SUType.c */,
+				9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */,
+				9ABEAD4915AC02ED00CF9849 /* SUSyntaxTree.c */,
+				9ABEAD4C15AC1A3C00CF9849 /* SUList.c */,
+				9ABEAD5915AD552700CF9849 /* SUIterator.c */,
+				9ABEAD6115AEBCB200CF9849 /* SUString.c */,
+				9ABEAD6415AFED2E00CF9849 /* SUFunction.c */,
+			);
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +215,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ABEAD3115A80BB300CF9849 /* main.m in Sources */,
+				9ABEAD4615AA99BC00CF9849 /* SUTokenizer.c in Sources */,
+				9ABEAD4A15AC02ED00CF9849 /* SUSyntaxTree.c in Sources */,
+				9ABEAD4D15AC1A3C00CF9849 /* SUList.c in Sources */,
+				9ABEAD5415AD275900CF9849 /* SUType.c in Sources */,
+				9ABEAD5A15AD552700CF9849 /* SUIterator.c in Sources */,
+				9ABEAD6215AEBCB300CF9849 /* SUString.c in Sources */,
+				9ABEAD6515AFED2F00CF9849 /* SUFunction.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

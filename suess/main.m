@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "SUTokenizer.h"
+#include "SUSyntaxTree.h"
+#include "SUType.h"
 
-int main(int argc, const char * argv[])
-{
-
+int main(int argc, const char * argv[]) {
 	@autoreleasepool {
-	    
-	    // insert code here...
-	    NSLog(@"Hello, World!");
-	    
+		for (int i = 0; i < 20000; i++) {
+			SUList * tokens = SUTokenizeFile(argv[1]);
+			SUSyntaxTree * tree = SUSyntaxTreeCreate(tokens);
+			if (tokens)
+				SURelease(tokens);
+			if (tree)
+				SURelease(tree);
+		}
 	}
     return 0;
 }
-
