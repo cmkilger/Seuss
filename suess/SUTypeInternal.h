@@ -13,27 +13,27 @@
 #include <stdlib.h>
 
 typedef struct suess_type {
-	unsigned int retainCount;
-	SUTypeRef(*retain)(SUTypeRef);
-	void(*release)(SUTypeRef);
-	void(*free)(SUTypeRef);
+    unsigned int retainCount;
+    SUTypeRef(*retain)(SUTypeRef);
+    void(*release)(SUTypeRef);
+    void(*free)(SUTypeRef);
 } SUType;
 
 void SUInitialize(SUTypeRef type, SUTypeRef(*retain)(SUTypeRef), void(*release)(SUTypeRef), void(*free)(SUTypeRef));
 void SUFree(SUTypeRef type);
 
 static inline SUTypeRef suess_retain(SUTypeRef type) {
-	((SUType*)type)->retainCount++;
-	return type;
+    ((SUType*)type)->retainCount++;
+    return type;
 }
 
 static inline void suess_release(SUTypeRef type) {
-	if (--((SUType*)type)->retainCount == 0)
-		SUFree(type);
+    if (--((SUType*)type)->retainCount == 0)
+        SUFree(type);
 }
 
 static inline void suess_free(SUTypeRef type) {
-	free((SUType*)type);
+    free((SUType*)type);
 }
 
 #endif

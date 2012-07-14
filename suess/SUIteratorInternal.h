@@ -16,8 +16,8 @@ struct suess_list;
 struct suess_list_node;
 
 struct suess_iterator {
-	SUType __base;
-	struct suess_list_node * next;
+    SUType __base;
+    struct suess_list_node * next;
 };
 
 SUIterator * SUIteratorCreateWithList(struct suess_list * list);

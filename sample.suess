@@ -3,6 +3,10 @@ World.".
 Read name.
 
 Define function add (first number) to (second number):
-	Return first number + second number.
+    Return first number + second number.
+End function.
+
+Define function add (some other number) to (and a second number):
+    Return first number + second number.
 End function.
 

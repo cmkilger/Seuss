@@ -12,18 +12,8 @@
 #include "SUTokenizer.h"
 #include "SUList.h"
 
-typedef struct __statement {
-	struct __function * function;
-	struct __parameter ** parameters;
-} SUStatement;
-
-typedef struct __program {
-	struct __function ** functions;
-	struct __statement ** statements;
-} SUProgram;
-
-typedef struct __syntaxTree {
-	struct __program * program;
+typedef struct suess_syntaxTree {
+    struct suess_program * program;
 } SUSyntaxTree;
 
 SUSyntaxTree * SUSyntaxTreeCreate(SUList * tokens);

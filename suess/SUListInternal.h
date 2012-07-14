@@ -13,16 +13,16 @@
 #include "SUTypeInternal.h"
 
 typedef struct suess_list_node {
-	SUType __base;
-	void * value;
-	struct suess_list_node * next;
-	int shouldRetain;
+    SUType __base;
+    void * value;
+    struct suess_list_node * next;
+    int shouldRetain;
 } SUListNode;
 
 struct suess_list {
-	SUType __base;
-	struct suess_list_node * head;
-	struct suess_list_node * tail;
+    SUType __base;
+    struct suess_list_node * head;
+    struct suess_list_node * tail;
 };
 
 #endif

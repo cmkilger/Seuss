@@ -10,24 +10,24 @@
 #include "SUListInternal.h"
 
 void suess_iterator_free(SUTypeRef type) {
-	SUIterator * iterator = type;
-	if (iterator->next)
-		SURelease(iterator->next);
-	suess_free(type);
+    SUIterator * iterator = type;
+    if (iterator->next)
+        SURelease(iterator->next);
+    suess_free(type);
 }
 
 SUIterator * SUIteratorCreateWithList(SUList * list) {
-	SUIterator * iterator = malloc(sizeof(SUIterator));
-	SUInitialize(iterator, NULL, NULL, suess_iterator_free);
-	iterator->next = list->head;
-	return iterator;
+    SUIterator * iterator = malloc(sizeof(SUIterator));
+    SUInitialize(iterator, NULL, NULL, suess_iterator_free);
+    iterator->next = list->head;
+    return iterator;
 }
 
 SUTypeRef SUIteratorNext(SUIterator * iterator) {
-	SUListNode * next = iterator->next;
-	if (next) {
-		iterator->next = next->next;
-		return next->value;
-	}
-	return NULL;
+    SUListNode * next = iterator->next;
+    if (next) {
+        iterator->next = next->next;
+        return next->value;
+    }
+    return NULL;
 }

@@ -10,9 +10,10 @@
 #define suess_SUFunction_h
 
 struct suess_iterator;
+struct suess_list;
 
 typedef struct suess_function SUFunction;
 
-SUFunction * SUFunctionCreate(struct suess_iterator * iterator, char ** error);
+SUFunction * SUFunctionCreate(struct suess_list * functions, struct suess_iterator * iterator, char ** error);
 
 #endif

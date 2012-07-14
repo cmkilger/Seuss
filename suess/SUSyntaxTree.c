@@ -12,45 +12,17 @@
 #include "SUList.h"
 #include "SUIterator.h"
 #include "SUFunction.h"
+#include "SUStatement.h"
+#include "SUProgram.h"
 #include <stdlib.h>
 
-SUStatement * SUStatementCreate(SUIterator * iterator, char ** error) {
-	return NULL;
-}
-
-SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
-	SUToken * token = NULL;
-	while ((token = SUIteratorNext(iterator))) {
-		switch (SUTokenGetType(token)) {
-			case SUTokenTypeStartFunctionDefinition: {
-				SUFunction * function = SUFunctionCreate(iterator, error);
-				if (function)
-					SURelease(function);
-			} break;
-				
-			case SUTokenTypeWord: {
-				SUStatement * statement = SUStatementCreate(iterator, error);
-				if (statement)
-					SURelease(statement);
-			} break;
-			
-			default: {
-//				token = NULL;
-				if (error)
-					*error = "Unable to parse!";
-			} break;
-		}
-	}
-	return NULL;
-}
-
 SUSyntaxTree * SUSyntaxTreeCreate(SUList * tokens) {
-	SUIterator * iterator = SUListCreateIterator(tokens);
-	char * error = NULL;
-	SUProgram * program = SUProgramCreate(iterator, &error);
-	if (iterator)
-		SURelease(iterator);
-	if (program)
-		SURelease(program);
-	return NULL;
+    SUIterator * iterator = SUListCreateIterator(tokens);
+    char * error = NULL;
+    SUProgram * program = SUProgramCreate(iterator, &error);
+    if (iterator)
+        SURelease(iterator);
+    if (program)
+        SURelease(program);
+    return NULL;
 }
