@@ -7,6 +7,7 @@
 //
 
 #include "SUStatement.h"
+#include "SUTokenizer.h"
 #include "SUTypeInternal.h"
 #include "SUIterator.h"
 #include "SUFunction.h"
@@ -19,13 +20,35 @@ struct suess_statement {
     SUList * parameters;
 };
 
-SUStatement * SUStatementCreate(SUList * functions, SUIterator * iterator, char ** error) {
+SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterator * iterator, SUToken * token, char ** error) {
+    
+    // Parse the statement into only words, strings, and expressions
+    
+    SUList * statementTokens = SUListCreate();
+    SUListAddValue(statementTokens, token);
+    while ((token = SUIteratorNext(iterator)) && SUTokenGetType(token) != SUTokenTypePeriod) {
+        SUListAddValue(statementTokens, token);
+    }
+    
+    // Loop throught known functions
+    SUIterator * functionIterator = SUListCreateIterator(functions);
+    SUFunction * function = NULL;
+    while ((function = SUIteratorNext(functionIterator))) {
+        SUList * parameters = SUFunctionCreateParametersForStatementTokens(function, statementTokens);
+        SURelease(parameters);
+    }
+    SURelease(functionIterator);
+    
+    
+    // Match each function to the statement, return NULL if not a match, list of parameters if it is
+    // Compare parameters to known variables and use function with the highest percentage of knowns
+    // If there is a tie, use the function that starts with the most words
+    // Add new variables to known list
+    // Create statement object with function and parameters
     
     
     
-    
-    
-    
+    SURelease(statementTokens);
     
     
     

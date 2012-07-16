@@ -9,12 +9,20 @@
 #ifndef suess_SUList_h
 #define suess_SUList_h
 
+#include "SUType.h"
+#include "SURange.h"
+#include <stdlib.h>
+
 struct suess_iterator;
 
 typedef struct suess_list SUList;
 
 SUList * SUListCreate();
-void SUListAddValue(SUList * list, void * value, int shouldRetain);
+void SUListAddValue(SUList * list, SUTypeRef value);
+unsigned int SUListGetLength(SUList * list);
+unsigned int SUListIndexOfValue(SUList * list, SUTypeRef value);
+void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index);
+SUList * SUListCreateSublistWithRange(SUList * list, SURange range);
 struct suess_iterator * SUListCreateIterator(SUList * list);
 
 #endif

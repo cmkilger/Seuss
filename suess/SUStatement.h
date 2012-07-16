@@ -11,9 +11,10 @@
 
 struct suess_list;
 struct suess_iterator;
+struct suess_token;
 
 typedef struct suess_statement SUStatement;
 
-SUStatement * SUStatementCreate(struct suess_list * functions, struct suess_iterator * iterator, char ** error);
+SUStatement * SUStatementCreate(struct suess_list * functions, struct suess_list * variables, struct suess_iterator * iterator, struct suess_token * currentToken, char ** error);
 
 #endif

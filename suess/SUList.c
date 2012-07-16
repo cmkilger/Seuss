@@ -10,6 +10,7 @@
 #include "SUIteratorInternal.h"
 #include "SUTypeInternal.h"
 #include <stdlib.h>
+#include <assert.h>
 
 void suess_list_free(SUTypeRef type) {
     SUList * list = type;
@@ -30,18 +31,17 @@ void suess_list_node_free(SUTypeRef type) {
     SUListNode * node = type;
     if (node->next)
         SURelease(node->next);
-    if (node->shouldRetain)
-        SURelease(node->value);
+    SURelease(node->value);
     suess_free(type);
 }
 
-void SUListAddValue(SUList * list, void * value, int shouldRetain) {
+void SUListAddValue(SUList * list, void * value) {
+    assert(value != NULL);
+    
     SUListNode * new = malloc(sizeof(SUListNode));
     SUInitialize(new, NULL, NULL, suess_list_node_free);
-    new->value = value;
+    new->value = SURetain(value);
     new->next = NULL;
-    if ((new->shouldRetain = shouldRetain))
-        SURetain(value);
     SUListNode * node = list->tail;
     if (node) {
         node->next = new;
@@ -51,6 +51,72 @@ void SUListAddValue(SUList * list, void * value, int shouldRetain) {
         list->head = new;
         list->tail = new;
     }
+    
+    list->length++;
+}
+
+unsigned int SUListGetLength(SUList * list) {
+    return list->length;
+}
+
+unsigned int SUListIndexOfValue(SUList * list, SUTypeRef value) {
+    SUListNode * node = list->head;
+    unsigned int index = 0;
+    while (node->value != value) {
+        index++;
+        if (node)
+            node = node->next;
+        else
+            break;
+    }
+    return index;
+}
+
+void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index) {
+    assert(index <= list->length);
+    
+    SUListNode * new = malloc(sizeof(SUListNode));
+    SUInitialize(new, NULL, NULL, suess_list_node_free);
+    new->value = SURetain(value);
+    
+    if (index == 0) {
+        new->next = list->head;
+        list->head = new;
+        if (!list->tail)
+            list->tail = new;
+    }
+    else {
+        SUListNode * node = list->head;
+        for (unsigned int i = 0; i < index-1; i++)
+            node = node->next;
+        new->next = node->next;
+        node->next = new;
+        if (node == list->tail)
+            list->tail = new;
+    }
+    
+    list->length++;
+}
+
+// A B C D E F
+// 0 1 2 3 4 5
+// 
+
+SUList * SUListCreateSublistWithRange(SUList * list, SURange range) {
+    assert(SURangeMax(range) <= list->length);
+    
+    SUList * sublist = SUListCreate();
+    
+    SUListNode * node = list->head;
+    for (unsigned int i = 0; i < range.location; i++)
+        node = node->next;
+    
+    for (unsigned int i = 0; i < range.length; i++) {
+        SUListAddValue(sublist, node->value);
+        node = node->next;
+    }
+    
+    return sublist;
 }
 
 SUIterator * SUListCreateIterator(SUList * list) {

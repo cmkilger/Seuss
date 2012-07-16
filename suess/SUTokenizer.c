@@ -123,6 +123,8 @@ SUList * SUTokenizeFile(const char * filename) {
                     break;
                 }
                 
+                /* Disabling true and false for now. These will likely become predefined variables instead.
+                
                 // true
                 if ((character == 't' || character == 'T') && i+3 < filesize) {
                     char value[4];
@@ -147,6 +149,8 @@ SUList * SUTokenizeFile(const char * filename) {
                         break;
                     }
                 }
+                 
+                 */
                 
                 // Start function
                 if ((character == 'd' || character == 'D') && i+14 < filesize) {
@@ -230,7 +234,7 @@ SUList * SUTokenizeFile(const char * filename) {
         }
         
         if (token) {
-            SUListAddValue(tokens, token, 1);
+            SUListAddValue(tokens, token);
             SURelease(token);
         }
     }

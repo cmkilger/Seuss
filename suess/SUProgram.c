@@ -33,21 +33,22 @@ SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
     SUList * functions = SUListCreate();
     SUList * statements = SUListCreate();
     
+    SUList * variables = SUListCreate();
     SUToken * token = NULL;
     while ((token = SUIteratorNext(iterator))) {
         switch (SUTokenGetType(token)) {
             case SUTokenTypeStartFunctionDefinition: {
                 SUFunction * function = SUFunctionCreate(functions, iterator, error);
                 if (function) {
-                    SUListAddValue(functions, function, 1);
+                    SUListAddValue(functions, function);
                     SURelease(function);
                 }
             } break;
                 
             case SUTokenTypeWord: {
-                SUStatement * statement = SUStatementCreate(functions, iterator, error);
+                SUStatement * statement = SUStatementCreate(functions, variables, iterator, token, error);
                 if (statement) {
-                    SUListAddValue(statements, statement, 1);
+                    SUListAddValue(statements, statement);
                     SURelease(statement);
                 }
             } break;
@@ -59,6 +60,7 @@ SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
             } break;
         }
     }
+    SURelease(variables);
     
     SUProgram * program = malloc(sizeof(SUProgram));
     SUInitialize(program, NULL, NULL, suess_program_free);

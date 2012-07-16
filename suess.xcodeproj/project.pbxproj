@@ -39,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9A1E3BAA15B3CD04007C10C8 /* SURange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SURange.h; sourceTree = "<group>"; };
 		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -171,6 +172,7 @@
 				9ABEAD6315AFED2000CF9849 /* SUFunction.h */,
 				9ABEAD6615B130A700CF9849 /* SUStatement.h */,
 				9ABEAD8615B13A4900CF9849 /* SUProgram.h */,
+				9A1E3BAA15B3CD04007C10C8 /* SURange.h */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -470,6 +472,7 @@
 				9ABEAD3A15A80BB300CF9849 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9ABEAD8115B1369400CF9849 /* Build configuration list for PBXNativeTarget "suessTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +481,7 @@
 				9ABEAD8315B1369400CF9849 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

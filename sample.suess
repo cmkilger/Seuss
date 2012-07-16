@@ -10,3 +10,28 @@ Define function add (some other number) to (and a second number):
     Return first number + second number.
 End function.
 
+Define function A (B) D (F) C (E):
+    Return "Hi".
+End function.
+
+Define function A B (D F) C (E):
+    Return "Hi".
+End function.
+
+Define function A (D) B (F) C (E):
+    Return "Hi".
+End function.
+
+Define function A (B D F C E):
+    Return "Hi".
+End function.
+
+Define function A B (D F C E):
+    Return "Hi".
+End function.
+
+Define function B (D F C E):
+    Return "Hi".
+End function.
+
+A B C D F C E.
