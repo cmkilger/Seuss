@@ -24,6 +24,7 @@ SUList * SUListCreate() {
     SUInitialize(list, NULL, NULL, suess_list_free);
     list->head = NULL;
     list->tail = NULL;
+    list->length = 0;
     return list;
 }
 
@@ -53,10 +54,22 @@ void SUListAddValue(SUList * list, void * value) {
     }
     
     list->length++;
+    
+    if (list->length > 1000) {
+        SURelease(SUListCreate());
+    }
 }
 
 unsigned int SUListGetLength(SUList * list) {
     return list->length;
+}
+
+SUTypeRef SUListGetValueAtIndex(SUList * list, unsigned int index) {
+    assert(index < list->length);
+    SUListNode * node = list->head;
+    for (unsigned int i = 0; i < index; i++)
+        node = node->next;
+    return node->value;
 }
 
 unsigned int SUListIndexOfValue(SUList * list, SUTypeRef value) {
@@ -96,11 +109,11 @@ void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index) {
     }
     
     list->length++;
+    
+    if (list->length > 1000) {
+        SURelease(SUListCreate());
+    }
 }
-
-// A B C D E F
-// 0 1 2 3 4 5
-// 
 
 SUList * SUListCreateSublistWithRange(SUList * list, SURange range) {
     assert(SURangeMax(range) <= list->length);

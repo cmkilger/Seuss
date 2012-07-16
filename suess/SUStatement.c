@@ -35,6 +35,7 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
     SUFunction * function = NULL;
     while ((function = SUIteratorNext(functionIterator))) {
         SUList * parameters = SUFunctionCreateParametersForStatementTokens(function, statementTokens);
+        // TODO: use parameters
         SURelease(parameters);
     }
     SURelease(functionIterator);

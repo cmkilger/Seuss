@@ -183,15 +183,12 @@ SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, char **
     return function;
 }
 
-SUList * SUFunctionCreateListOfTokensThatMatchWords(SUList * statement, int startIndex, SUList * words) {
+SUList * SUFunctionCreateListOfTokensThatMatchWords(SUList * statement, int isStart, SUList * words) {
     SUList * tokens = SUListCreate();
     
-    SUToken * startToken = NULL;
     SUIterator * startIterator = SUListCreateIterator(statement);
-    for (int i = 0; i <= startIndex; i++)
-        startToken = SUIteratorNext(startIterator);
-    
-    while (startToken) {
+    SUToken * startToken = NULL;
+    while ((startToken = SUIteratorNext(startIterator))) {
         SUIterator * wordIterator = SUListCreateIterator(words);
         SUIterator * tokenIterator = SUListCreateIterator(statement);
         
@@ -210,12 +207,10 @@ SUList * SUFunctionCreateListOfTokensThatMatchWords(SUList * statement, int star
         if (!word)
             SUListAddValue(tokens, startToken);
         
-        startToken = SUIteratorNext(startIterator);
-        
         SURelease(wordIterator);
         SURelease(tokenIterator);
         
-        if (startIndex == 0)
+        if (isStart)
             break;
     }
     
@@ -224,49 +219,47 @@ SUList * SUFunctionCreateListOfTokensThatMatchWords(SUList * statement, int star
     return tokens;
 }
 
-SUList * SUFunctionCreateListOfParameters(SUList * statement, int startIndex, SUFunction * function, size_t signatureIndex) {
+SUList * SUFunctionCreateListOfParameters(SUList * statement, int isStart, SUFunction * function, unsigned int signatureIndex) {
     // If there are no more signature words, just take the rest of the stamement as a parameter
     if (signatureIndex >= SUListGetLength(function->signature)) {
-        SURange range = SURangeMake(startIndex, SUListGetLength(statement)-startIndex);
-        SUList * words = SUListCreateSublistWithRange(statement, range);
         SUList * parameters = SUListCreate();
-        SUListAddValue(parameters, words);
+        SUListAddValue(parameters, statement);
         SUList * options = SUListCreate();
         SUListAddValue(options, parameters);
         SURelease(parameters);
-        SURelease(words);
         return options;
     }
     
     // Get the next words
-    SUList * nextWords = NULL;
-    SUIterator * nextWordsIterator = SUListCreateIterator(function->signature);
-    for (int i = 0; i <= signatureIndex; i++)
-        nextWords = SUIteratorNext(nextWordsIterator);
-    SURelease(nextWordsIterator);
+    SUList * nextWords = SUListGetValueAtIndex(function->signature, signatureIndex);
     
     // Create result options array
     SUList * options = SUListCreate();
     
     // Enumerate matches for nextToken in statement
-    SUList * matches = SUFunctionCreateListOfTokensThatMatchWords(statement, startIndex, nextWords);
+    SUList * matches = SUFunctionCreateListOfTokensThatMatchWords(statement, isStart, nextWords);
     if (SUListGetLength(matches) > 0) {
         SUIterator * matchIterator = SUListCreateIterator(matches);
         SUToken * match = NULL;
         while ((match = SUIteratorNext(matchIterator))) {
             size_t location = SUListIndexOfValue(statement, match);
-            SUList * parameter = SUListCreateSublistWithRange(statement, SURangeMake(startIndex, location - startIndex));
-            if (SUListGetLength(parameter) > 0 || startIndex == 0) {
-                SUList * parameters = SUFunctionCreateListOfParameters(statement, location + SUListGetLength(nextWords), function, signatureIndex+1);
+            SUList * parameter = SUListCreateSublistWithRange(statement, SURangeMake(0, location));
+            if (SUListGetLength(parameter) > 0 || isStart) {
+                unsigned int rangeLocation = location + SUListGetLength(nextWords);
+                SURange range = SURangeMake(rangeLocation, SUListGetLength(statement) - rangeLocation);
+                SUList * newStatement = SUListCreateSublistWithRange(statement, range);
+                SUList * parameters = SUFunctionCreateListOfParameters(newStatement, 0, function, signatureIndex+1);
                 SUIterator * parameterIterator = SUListCreateIterator(parameters);
                 SUList * array = NULL;
                 while ((array = SUIteratorNext(parameterIterator))) {
-                    if (startIndex > 0)
+                    if (!isStart)
                         SUListInsertValue(array, parameter, 0);
-                    SUListAddValue(options, array);
+                    if (!isStart || SUListGetLength(array) == SUListGetLength(function->parameters))
+                        SUListAddValue(options, array);
                 }
                 SURelease(parameterIterator);
                 SURelease(parameters);
+                SURelease(newStatement);
             }
             SURelease(parameter);
         }
@@ -278,5 +271,5 @@ SUList * SUFunctionCreateListOfParameters(SUList * statement, int startIndex, SU
 }
 
 SUList * SUFunctionCreateParametersForStatementTokens(SUFunction * function, SUList * tokens) {
-    return SUFunctionCreateListOfParameters(tokens, 0, function, 0);
+    return SUFunctionCreateListOfParameters(tokens, 1, function, 0);
 }

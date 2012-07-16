@@ -18,9 +18,7 @@ void suess_iterator_free(SUTypeRef type) {
 }
 
 SUIterator * SUIteratorCreateWithList(SUList * list) {
-    
     assert(list != NULL);
-    
     SUIterator * iterator = malloc(sizeof(SUIterator));
     SUInitialize(iterator, NULL, NULL, suess_iterator_free);
     iterator->next = list->head;
@@ -30,15 +28,12 @@ SUIterator * SUIteratorCreateWithList(SUList * list) {
 }
 
 SUTypeRef SUIteratorNext(SUIterator * iterator) {
-    
     assert(iterator != NULL);
-    
     SUListNode * next = iterator->next;
     if (next) {
         if (next->next)
             SURetain(next->next);
-        if (iterator->next)
-            SURelease(iterator->next);
+        SURelease(iterator->next);
         iterator->next = next->next;
         return next->value;
     }

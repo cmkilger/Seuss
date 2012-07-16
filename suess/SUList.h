@@ -20,6 +20,7 @@ typedef struct suess_list SUList;
 SUList * SUListCreate();
 void SUListAddValue(SUList * list, SUTypeRef value);
 unsigned int SUListGetLength(SUList * list);
+SUTypeRef SUListGetValueAtIndex(SUList * list, unsigned int index);
 unsigned int SUListIndexOfValue(SUList * list, SUTypeRef value);
 void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index);
 SUList * SUListCreateSublistWithRange(SUList * list, SURange range);
