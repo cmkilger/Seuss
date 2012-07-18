@@ -15,6 +15,7 @@ typedef struct suess_string SUString;
 
 SUString * SUStringCreate(const char * cString);
 size_t SUStringGetLength(SUString * string);
+const char * SUStringGetCString(SUString * string);
 int SUStringEqual(SUString * string1, SUString * string2);
 
 #endif

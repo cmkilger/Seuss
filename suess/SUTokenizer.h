@@ -34,9 +34,9 @@ struct suess_string;
 
 typedef struct suess_token SUToken;
 
-SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, const char * file, unsigned int line);
+SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, struct suess_string * file, unsigned int line);
 SUTokenType SUTokenGetType(SUToken * token);
 struct suess_string *  SUTokenGetValue(SUToken * token);
-struct suess_list * SUTokenizeFile(const char * filename);
+struct suess_list * SUTokenizeFile(struct suess_string * filename);
 
 #endif

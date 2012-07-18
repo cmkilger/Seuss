@@ -30,12 +30,12 @@ void suess_token_free(SUTypeRef type) {
     suess_free(type);
 }
 
-SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, const char * file, unsigned int line) {
+SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, SUString * file, unsigned int line) {
     SUToken * token = malloc(sizeof(SUToken));
     SUInitialize(token, NULL, NULL, suess_token_free);
     token->type = tokenType;
     token->value = SUStringCreate(value);
-    token->file = SUStringCreate(file);
+    token->file = SURetain(file);
     token->line = line;
     return token;
 }
@@ -48,8 +48,8 @@ SUString *  SUTokenGetValue(SUToken * token) {
     return token->value;
 }
 
-SUList * SUTokenizeFile(const char * filename) {
-    FILE * file = fopen(filename, "r");
+SUList * SUTokenizeFile(SUString * filename) {
+    FILE * file = fopen(SUStringGetCString(filename), "r");
     
     // File size
     fseek(file, 0, SEEK_END);

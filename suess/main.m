@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #include "SUTokenizer.h"
 #include "SUSyntaxTree.h"
+#include "SUString.h"
 #include "SUType.h"
 #include <sys/time.h>
 
@@ -20,7 +21,8 @@ int main(int argc, const char * argv[]) {
         gettimeofday(&startTime, NULL);
         
         for (int i = 0; i < ITER; i++) {
-            SUList * tokens = SUTokenizeFile(argv[1]);
+            SUString * file = SUStringCreate(argv[1]);
+            SUList * tokens = SUTokenizeFile(file);
             SUSyntaxTree * tree = SUSyntaxTreeCreate(tokens);
             if (tokens)
                 SURelease(tokens);

@@ -46,6 +46,10 @@ size_t SUStringGetLength(SUString * string) {
     return string->length;
 }
 
+const char * SUStringGetCString(SUString * string) {
+    return string->string;
+}
+
 int SUStringEqual(SUString * string1, SUString * string2) {
     size_t length1 = SUStringGetLength(string1);
     size_t length2 = SUStringGetLength(string2);
