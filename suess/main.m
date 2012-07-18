@@ -10,10 +10,16 @@
 #include "SUTokenizer.h"
 #include "SUSyntaxTree.h"
 #include "SUType.h"
+#include <sys/time.h>
+
+#define ITER 100
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        for (int i = 0; i < 20000; i++) {
+        struct timeval startTime, endTime;
+        gettimeofday(&startTime, NULL);
+        
+        for (int i = 0; i < ITER; i++) {
             SUList * tokens = SUTokenizeFile(argv[1]);
             SUSyntaxTree * tree = SUSyntaxTreeCreate(tokens);
             if (tokens)
@@ -21,6 +27,11 @@ int main(int argc, const char * argv[]) {
             if (tree)
                 SURelease(tree);
         }
+        
+        gettimeofday(&endTime, NULL);
+        
+        double time = (((endTime.tv_sec - startTime.tv_sec) * 1000000.0) + (endTime.tv_usec - startTime.tv_usec));
+        printf("Average Time = %.0f microseconds\n", time/ITER);
     }
     return 0;
 }
