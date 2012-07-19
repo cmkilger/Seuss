@@ -30,6 +30,7 @@ void suess_statement_free(SUTypeRef type) {
 }
 
 SUStatement * SUStatementTieBreaker(SUList * statements) {
+    // TODO: make this smarter
     return SUListGetValueAtIndex(statements, 0);
 }
 
