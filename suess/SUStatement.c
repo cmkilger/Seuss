@@ -61,7 +61,7 @@ int SUStatementScoreParametersWithVariables(SUList * parameters, SUList * variab
     return 0;
 }
 
-SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterator * iterator, SUToken * token, char ** error) {
+SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterator * iterator, SUToken * token, SUList * errors) {
     
     SUStatement * statement = NULL;
     

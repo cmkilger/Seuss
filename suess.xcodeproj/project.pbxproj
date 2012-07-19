@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A3E362915B7CEA300C3C268 /* SUError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E362815B7CEA200C3C268 /* SUError.c */; };
 		9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD2D15A80BB300CF9849 /* Foundation.framework */; };
 		9ABEAD3115A80BB300CF9849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* main.m */; };
 		9ABEAD3515A80BB300CF9849 /* suess.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* suess.1 */; };
 		9ABEAD4615AA99BC00CF9849 /* SUTokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */; };
-		9ABEAD4A15AC02ED00CF9849 /* SUSyntaxTree.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4915AC02ED00CF9849 /* SUSyntaxTree.c */; };
 		9ABEAD4D15AC1A3C00CF9849 /* SUList.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4C15AC1A3C00CF9849 /* SUList.c */; };
 		9ABEAD5415AD275900CF9849 /* SUType.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5315AD275900CF9849 /* SUType.c */; };
 		9ABEAD5A15AD552700CF9849 /* SUIterator.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5915AD552700CF9849 /* SUIterator.c */; };
@@ -40,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		9A1E3BAA15B3CD04007C10C8 /* SURange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SURange.h; sourceTree = "<group>"; };
+		9A3E362715B7CE9200C3C268 /* SUError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUError.h; sourceTree = "<group>"; };
+		9A3E362815B7CEA200C3C268 /* SUError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUError.c; sourceTree = "<group>"; };
 		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,8 +50,6 @@
 		9ABEAD3B15A80C0200CF9849 /* sample.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.suess; sourceTree = SOURCE_ROOT; };
 		9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUTokenizer.c; sourceTree = "<group>"; };
 		9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTokenizer.h; sourceTree = "<group>"; };
-		9ABEAD4815AC02DF00CF9849 /* SUSyntaxTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUSyntaxTree.h; sourceTree = "<group>"; };
-		9ABEAD4915AC02ED00CF9849 /* SUSyntaxTree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUSyntaxTree.c; sourceTree = "<group>"; };
 		9ABEAD4B15AC1A2C00CF9849 /* SUList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUList.h; sourceTree = "<group>"; };
 		9ABEAD4C15AC1A3C00CF9849 /* SUList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUList.c; sourceTree = "<group>"; };
 		9ABEAD5215AD274D00CF9849 /* SUType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUType.h; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				9ABEAD5215AD274D00CF9849 /* SUType.h */,
-				9ABEAD4815AC02DF00CF9849 /* SUSyntaxTree.h */,
 				9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */,
 				9ABEAD4B15AC1A2C00CF9849 /* SUList.h */,
 				9ABEAD5815AD551800CF9849 /* SUIterator.h */,
@@ -173,6 +172,7 @@
 				9ABEAD6615B130A700CF9849 /* SUStatement.h */,
 				9ABEAD8615B13A4900CF9849 /* SUProgram.h */,
 				9A1E3BAA15B3CD04007C10C8 /* SURange.h */,
+				9A3E362715B7CE9200C3C268 /* SUError.h */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -192,13 +192,13 @@
 			children = (
 				9ABEAD5315AD275900CF9849 /* SUType.c */,
 				9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */,
-				9ABEAD4915AC02ED00CF9849 /* SUSyntaxTree.c */,
 				9ABEAD4C15AC1A3C00CF9849 /* SUList.c */,
 				9ABEAD5915AD552700CF9849 /* SUIterator.c */,
 				9ABEAD6115AEBCB200CF9849 /* SUString.c */,
 				9ABEAD6415AFED2E00CF9849 /* SUFunction.c */,
 				9ABEAD6715B130B400CF9849 /* SUStatement.c */,
 				9ABEAD8415B13A0900CF9849 /* SUProgram.c */,
+				9A3E362815B7CEA200C3C268 /* SUError.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -331,7 +331,6 @@
 			files = (
 				9ABEAD3115A80BB300CF9849 /* main.m in Sources */,
 				9ABEAD4615AA99BC00CF9849 /* SUTokenizer.c in Sources */,
-				9ABEAD4A15AC02ED00CF9849 /* SUSyntaxTree.c in Sources */,
 				9ABEAD4D15AC1A3C00CF9849 /* SUList.c in Sources */,
 				9ABEAD5415AD275900CF9849 /* SUType.c in Sources */,
 				9ABEAD5A15AD552700CF9849 /* SUIterator.c in Sources */,
@@ -339,6 +338,7 @@
 				9ABEAD6515AFED2F00CF9849 /* SUFunction.c in Sources */,
 				9ABEAD6815B130B500CF9849 /* SUStatement.c in Sources */,
 				9ABEAD8515B13A0900CF9849 /* SUProgram.c in Sources */,
+				9A3E362915B7CEA300C3C268 /* SUError.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

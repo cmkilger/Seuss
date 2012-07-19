@@ -98,7 +98,7 @@ int SUFunctionContainsDeclaration(SUList * functions, SUList * declaration) {
     return 0;
 }
 
-SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parametersPtr, char ** error) {
+SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parametersPtr, SUList * errors) {
     SUList * signature = SUListCreate();
     SUList * parameters = SUListCreate();
     
@@ -152,9 +152,9 @@ SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parameters
     return signature;
 }
 
-SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, char ** error) {
+SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, SUList * errors) {
     SUList * parameters = NULL;
-    SUList * signature = SUFunctionCreateDeclaration(iterator, &parameters, error);
+    SUList * signature = SUFunctionCreateDeclaration(iterator, &parameters, errors);
     if (SUFunctionContainsDeclaration(functions, signature)) {
         // TODO: error;
         SURelease(parameters);
@@ -166,7 +166,7 @@ SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, char **
     SUList * statements = SUListCreate();
     SUToken * token = NULL;
     while ((token = SUIteratorNext(iterator)) && SUTokenGetType(token) != SUTokenTypeEndFunctionDefinition) {
-        SUStatement * statement = SUStatementCreate(functions, variables, iterator, token, error);
+        SUStatement * statement = SUStatementCreate(functions, variables, iterator, token, errors);
         if (statement) {
             SUListAddValue(statements, statement);
             SURelease(statement);

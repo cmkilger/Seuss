@@ -13,6 +13,7 @@
 #include "SUIterator.h"
 #include "SUTokenizer.h"
 #include "SUStatement.h"
+#include "SUError.h"
 
 struct suess_program {
     SUType __base;
@@ -29,7 +30,9 @@ void suess_program_free(SUTypeRef type) {
     suess_free(type);
 }
 
-SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
+SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
+    SUIterator * iterator = SUListCreateIterator(tokens);
+    
     SUList * functions = SUListCreate();
     SUList * statements = SUListCreate();
     
@@ -38,7 +41,7 @@ SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
     while ((token = SUIteratorNext(iterator))) {
         switch (SUTokenGetType(token)) {
             case SUTokenTypeStartFunctionDefinition: {
-                SUFunction * function = SUFunctionCreate(functions, iterator, error);
+                SUFunction * function = SUFunctionCreate(functions, iterator, errors);
                 if (function) {
                     SUListAddValue(functions, function);
                     SURelease(function);
@@ -46,7 +49,7 @@ SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
             } break;
                 
             case SUTokenTypeWord: {
-                SUStatement * statement = SUStatementCreate(functions, variables, iterator, token, error);
+                SUStatement * statement = SUStatementCreate(functions, variables, iterator, token, errors);
                 if (statement) {
                     SUListAddValue(statements, statement);
                     SURelease(statement);
@@ -54,9 +57,7 @@ SUProgram * SUProgramCreate(SUIterator * iterator, char ** error) {
             } break;
                 
             default: {
-//                token = NULL;
-                if (error)
-                    *error = "Unable to parse!";
+                // TODO: error
             } break;
         }
     }
