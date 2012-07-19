@@ -1,3 +1,12 @@
+Define function write (string):
+End function.
+
+Define function read (string):
+End function.
+
+Define function return (value):
+End function.
+
 Write "Hello
 World.".
 Read name.

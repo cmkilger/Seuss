@@ -13,7 +13,7 @@
 #include "SUType.h"
 #include <sys/time.h>
 
-#define ITER 100
+#define ITER 10000
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -28,6 +28,8 @@ int main(int argc, const char * argv[]) {
                 SURelease(tokens);
             if (tree)
                 SURelease(tree);
+            if (file)
+                SURelease(file);
         }
         
         gettimeofday(&endTime, NULL);
