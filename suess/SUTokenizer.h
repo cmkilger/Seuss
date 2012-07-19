@@ -36,7 +36,10 @@ typedef struct suess_token SUToken;
 
 SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, struct suess_string * file, unsigned int line);
 SUTokenType SUTokenGetType(SUToken * token);
-struct suess_string *  SUTokenGetValue(SUToken * token);
+struct suess_string * SUTokenGetValue(SUToken * token);
+struct suess_string * SUTokenGetFile(SUToken * token);
+unsigned int SUTokenGetLine(SUToken * token);
+
 struct suess_list * SUTokenizeFile(struct suess_string * filename);
 
 #endif

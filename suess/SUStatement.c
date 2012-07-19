@@ -12,6 +12,7 @@
 #include "SUIterator.h"
 #include "SUFunction.h"
 #include "SUString.h"
+#include "SUError.h"
 #include "SUList.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -110,7 +111,10 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
     // Compare parameters to known variables and use function with the highest percentage of knowns
     // If there is a tie, use the function that starts with the most words
     if (SUListGetLength(statements) == 0) {
-        // TODO: error
+        const char * message = "This didn't match any known functions.";
+        SUError * error = SUErrorCreate(SUErrorTypeError, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+        SUListAddValue(errors, error);
+        SURelease(error);
     }
     else {
         statement = SURetain(SUStatementTieBreaker(statements));

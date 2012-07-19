@@ -13,6 +13,7 @@
 #include "SUIterator.h"
 #include "SUTokenizer.h"
 #include "SUStatement.h"
+#include "SUError.h"
 #include "SURange.h"
 
 typedef enum {
@@ -123,10 +124,16 @@ SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parameters
                 
             case SUTokenTypeOpenParenthesis: {
                 if (!hasWord) {
-                    // TODO: error
+                    const char * message = "Functions need words before each parameter.";
+                    SUError * error = SUErrorCreate(SUErrorTypeError, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+                    SUListAddValue(errors, error);
+                    SURelease(error);
                 }
                 if (parameter) {
-                    // TODO: error
+                    const char * message = "Don't use '(' inside the parameter.";
+                    SUError * error = SUErrorCreate(SUErrorTypeError, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+                    SUListAddValue(errors, error);
+                    SURelease(error);
                 }
                 parameter = 1;
                 currentList = NULL;
@@ -134,7 +141,10 @@ SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parameters
                 
             case SUTokenTypeCloseParenthesis: {
                 if (!parameter) {
-                    // TODO: error
+                    const char * message = "Only use ')' to end a parameter.";
+                    SUError * error = SUErrorCreate(SUErrorTypeError, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+                    SUListAddValue(errors, error);
+                    SURelease(error);
                 }
                 parameter = 0;
                 hasWord = 0;
@@ -142,9 +152,19 @@ SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parameters
             } break;
                 
             default: {
-                // TODO: error
+                const char * message = "What have you done!?";
+                SUError * error = SUErrorCreate(SUErrorTypeError, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+                SUListAddValue(errors, error);
+                SURelease(error);
             } break;
         }
+    }
+    
+    if (hasWord || parameter) {
+        const char * message = "You didn't properly close the final parameter with a parenthesis.";
+        SUError * error = SUErrorCreate(SUErrorTypeWarning, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+        SUListAddValue(errors, error);
+        SURelease(error);
     }
     
     *parametersPtr = parameters;
@@ -152,11 +172,14 @@ SUList * SUFunctionCreateDeclaration(SUIterator * iterator, SUList ** parameters
     return signature;
 }
 
-SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, SUList * errors) {
+SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, SUToken * token, SUList * errors) {
     SUList * parameters = NULL;
     SUList * signature = SUFunctionCreateDeclaration(iterator, &parameters, errors);
     if (SUFunctionContainsDeclaration(functions, signature)) {
-        // TODO: error;
+        const char * message = "You can't decare the same function twice. We're going to ignore this one.";
+        SUError * error = SUErrorCreate(SUErrorTypeWarning, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+        SUListAddValue(errors, error);
+        SURelease(error);
         SURelease(parameters);
         SURelease(signature);
         return NULL;
@@ -164,7 +187,6 @@ SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, SUList 
     
     SUList * variables = SUListCreate();
     SUList * statements = SUListCreate();
-    SUToken * token = NULL;
     while ((token = SUIteratorNext(iterator)) && SUTokenGetType(token) != SUTokenTypeEndFunctionDefinition) {
         SUStatement * statement = SUStatementCreate(functions, variables, iterator, token, errors);
         if (statement) {

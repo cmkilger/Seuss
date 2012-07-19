@@ -13,6 +13,7 @@
 #include "SUIterator.h"
 #include "SUTokenizer.h"
 #include "SUStatement.h"
+#include "SUString.h"
 #include "SUError.h"
 
 struct suess_program {
@@ -41,7 +42,7 @@ SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
     while ((token = SUIteratorNext(iterator))) {
         switch (SUTokenGetType(token)) {
             case SUTokenTypeStartFunctionDefinition: {
-                SUFunction * function = SUFunctionCreate(functions, iterator, errors);
+                SUFunction * function = SUFunctionCreate(functions, iterator, token, errors);
                 if (function) {
                     SUListAddValue(functions, function);
                     SURelease(function);
@@ -57,11 +58,15 @@ SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
             } break;
                 
             default: {
-                // TODO: error
+                const char * message = "What have you done!?";
+                SUError * error = SUErrorCreate(SUErrorTypeError, SUTokenGetFile(token), SUTokenGetLine(token), SUStringCreate(message));
+                SUListAddValue(errors, error);
+                SURelease(error);
             } break;
         }
     }
     SURelease(variables);
+    SURelease(iterator);
     
     SUProgram * program = malloc(sizeof(SUProgram));
     SUInitialize(program, NULL, NULL, suess_program_free);

@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #include "SUTokenizer.h"
+#include "SUIterator.h"
 #include "SUProgram.h"
 #include "SUString.h"
+#include "SUError.h"
 #include "SUList.h"
 #include "SUType.h"
 #include <sys/time.h>
@@ -26,14 +28,31 @@ int main(int argc, const char * argv[]) {
             SUList * tokens = SUTokenizeFile(file);
             SUList * errors = SUListCreate();
             SUProgram * program = SUProgramCreate(tokens, errors);
-            if (tokens)
-                SURelease(tokens);
-            if (program)
-                SURelease(program);
-            if (file)
-                SURelease(file);
-            if (errors)
-                SURelease(errors);
+            
+            int shouldRun = 1;
+            SUError * error = NULL;
+            SUIterator * errorIterator = SUListCreateIterator(errors);
+            while ((error = SUIteratorNext(errorIterator))) {
+                const char * type = "warning";
+                if (SUErrorGetType(error) == SUErrorTypeError) {
+                    shouldRun = 0;
+                    type = "error";
+                }
+                const char * file = SUStringGetCString(SUErrorGetFile(error));
+                unsigned int line = SUErrorGetLine(error);
+                const char * message = SUStringGetCString(SUErrorGetMessage(error));
+                printf("%s: %s:%d: %s\n", type, file, line, message);
+            }
+            
+            if (shouldRun) {
+                // TODO: Execute program
+            }
+            
+            SURelease(errorIterator);
+            SURelease(tokens);
+            SURelease(program);
+            SURelease(file);
+            SURelease(errors);
         }
         
         gettimeofday(&endTime, NULL);

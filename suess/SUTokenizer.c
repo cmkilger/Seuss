@@ -48,6 +48,14 @@ SUString *  SUTokenGetValue(SUToken * token) {
     return token->value;
 }
 
+struct suess_string * SUTokenGetFile(SUToken * token) {
+    return token->file;
+}
+
+unsigned int SUTokenGetLine(SUToken * token) {
+    return token->line;
+}
+
 SUList * SUTokenizeFile(SUString * filename) {
     FILE * file = fopen(SUStringGetCString(filename), "r");
     
