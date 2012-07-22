@@ -46,6 +46,7 @@
 		9A3E363A15BA405200C3C268 /* SUVariable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUVariable.h; sourceTree = "<group>"; };
 		9A3E363C15BA406100C3C268 /* SUVariable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUVariable.c; sourceTree = "<group>"; };
 		9AAA83AA15B8FF310010E810 /* madlib.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = madlib.suess; sourceTree = SOURCE_ROOT; };
+		9AB7848415BBC021002CEE23 /* Suess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suess.h; sourceTree = "<group>"; };
 		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 		9ABEAD5D15AEBB2700CF9849 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				9AB7848415BBC021002CEE23 /* Suess.h */,
 				9ABEAD5215AD274D00CF9849 /* SUType.h */,
 				9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */,
 				9ABEAD4B15AC1A2C00CF9849 /* SUList.h */,
