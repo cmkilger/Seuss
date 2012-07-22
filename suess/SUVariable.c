@@ -22,6 +22,8 @@ void suess_variable_free(SUTypeRef type) {
     SUVariable * variable = type;
     if (variable->name)
         SURelease(variable->name);
+    if (variable->value)
+        SURelease(variable->value);
     suess_free(variable);
 }
 
