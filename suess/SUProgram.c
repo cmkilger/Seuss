@@ -13,6 +13,7 @@
 #include "SUIterator.h"
 #include "SUTokenizer.h"
 #include "SUStatement.h"
+#include "SUVariable.h"
 #include "SUString.h"
 #include "SUError.h"
 
@@ -20,6 +21,10 @@ struct suess_program {
     SUType __base;
     SUList * functions;
     SUList * statements;
+    void * writeData;
+    SUProgramWriteCallback writeCallback;
+    void * readData;
+    SUProgramReadCallback readCallback;
 };
 
 void suess_program_free(SUTypeRef type) {
@@ -34,10 +39,10 @@ void suess_program_free(SUTypeRef type) {
 SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
     SUIterator * iterator = SUListCreateIterator(tokens);
     
-    SUList * functions = SUListCreate();
+    SUList * functions = SUFunctionCreateBuiltins();
     SUList * statements = SUListCreate();
+    SUList * variables = SUVariableCreateBuiltins();
     
-    SUList * variables = SUListCreate();
     SUToken * token = NULL;
     while ((token = SUIteratorNext(iterator))) {
         switch (SUTokenGetType(token)) {
@@ -74,4 +79,38 @@ SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
     program->statements = statements;
     
     return program;
+}
+
+void SUProgramExecute(SUProgram * program) {
+    SUStatement * statement = NULL;
+    SUIterator * statementIterator = SUListCreateIterator(program->statements);
+    while ((statement = SUIteratorNext(statementIterator)))
+        SUStatementExecute(program, statement);
+    SURelease(statementIterator);
+}
+
+SUProgramWriteCallback SUProgramGetWriteCallback(SUProgram * program) {
+    return program->writeCallback;
+}
+
+void SUProgramSetWriteCallback(SUProgram * program, SUProgramWriteCallback writeCallback, void * userData) {
+    program->writeCallback = writeCallback;
+    program->writeData = userData;
+}
+
+SUProgramReadCallback SUProgramGetReadCallback(SUProgram * program) {
+    return program->readCallback;
+}
+
+void SUProgramSetReadCallback(SUProgram * program, SUProgramReadCallback readCallback, void * userData) {
+    program->readCallback = readCallback;
+    program->readData = userData;
+}
+
+void * SUProgramGetWriteData(SUProgram * program) {
+    return program->writeData;
+}
+
+void * SUProgramGetReadData(SUProgram * program) {
+    return program->readData;
 }

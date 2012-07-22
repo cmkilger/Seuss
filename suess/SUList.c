@@ -77,12 +77,22 @@ unsigned int SUListIndexOfValue(SUList * list, SUTypeRef value) {
     unsigned int index = 0;
     while (node->value != value) {
         index++;
-        if (node)
+        if (node->next)
             node = node->next;
         else
             break;
     }
     return index;
+}
+
+int SUListContainsValue(SUList * list, SUTypeRef value) {
+    SUListNode * node = list->head;
+    while (node) {
+        if (node->value == value)
+            return 1;
+        node = node->next;
+    }
+    return 0;
 }
 
 void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index) {

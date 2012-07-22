@@ -19,7 +19,7 @@ Define function add (some other number) to (and a second number):
     Return first number + second number.
 End function.
 
-Define function A (B) D (F) C (E):
+Define function A (B) C (F) C (E):
     Return "Hi".
 End function.
 

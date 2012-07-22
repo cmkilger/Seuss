@@ -11,6 +11,8 @@
 #include "SUTypeInternal.h"
 #include "SUIterator.h"
 #include "SUFunction.h"
+#include "SUVariable.h"
+#include "SUProgram.h"
 #include "SUString.h"
 #include "SUError.h"
 #include "SUList.h"
@@ -35,28 +37,50 @@ SUStatement * SUStatementTieBreaker(SUList * statements) {
     return SUListGetValueAtIndex(statements, 0);
 }
 
-int SUStatementScoreParametersWithVariables(SUList * parameters, SUList * variables) {
+int SUStatementScoreParametersWithVariables(SUList * parameters, SUList * variables, SUList * parameterVariables) {
     int score = 0;
     SUList * parameter = NULL;
     SUIterator * parameterIterator = SUListCreateIterator(parameters);
     while ((parameter = SUIteratorNext(parameterIterator))) {
-        SUList * variable = NULL;
-        SUIterator * variableIterator = SUListCreateIterator(variables);
-        while ((variable = SUIteratorNext(variableIterator))) {
-            SUString * parameterWord = NULL;
-            SUString * variableWord = NULL;
-            SUIterator * parameterWordIterator = SUListCreateIterator(parameter);
-            SUIterator * variableWordIterator = SUListCreateIterator(variable);
-            while ((parameterWord = SUIteratorNext(parameterWordIterator)) && (variableWord = SUIteratorNext(variableWordIterator))) {
-                if (!SUStringEqual(parameterWord, variableWord))
-                    break;
-            }
-            SURelease(parameterWordIterator);
-            SURelease(variableWordIterator);
-            if (!(parameterWord || variableWord))
-                score++;
+        SUToken * token = SUListGetValueAtIndex(parameter, 0);
+        if (SUTokenGetType(token) == SUTokenTypeString) {
+            score++;
+            SUListAddValue(parameterVariables, SUTokenGetValue(token));
         }
-        SURelease(variableIterator);
+        else {
+            int foundMatch = 0;
+            SUVariable * variable = NULL;
+            SUIterator * variableIterator = SUListCreateIterator(variables);
+            while ((variable = SUIteratorNext(variableIterator))) {
+                SUIterator * parameterWordIterator = SUListCreateIterator(parameter);
+                SUIterator * variableWordIterator = SUListCreateIterator(SUVariableGetName(variable));
+                SUToken * parameterToken = SUIteratorNext(parameterWordIterator);
+                SUToken * variableToken = SUIteratorNext(variableWordIterator);
+                while (parameterToken && variableToken) {
+                    if (SUTokenGetType(parameterToken) == SUTokenTypeString) {
+                        // TODO: error
+                        break;
+                    }
+                    if (!SUStringEqual(SUTokenGetValue(parameterToken), SUTokenGetValue(variableToken)))
+                        break;
+                    parameterToken = SUIteratorNext(parameterWordIterator);
+                    variableToken = SUIteratorNext(variableWordIterator);
+                }
+                SURelease(parameterWordIterator);
+                SURelease(variableWordIterator);
+                if (!(parameterToken || variableToken)) {
+                    SUListAddValue(parameterVariables, variable);
+                    foundMatch = 1;
+                    score++;
+                }
+            }
+            SURelease(variableIterator);
+            if (!foundMatch) {
+                SUVariable * variable = SUVariableCreate(parameter);
+                SUListAddValue(parameterVariables, variable);
+                SURelease(variable);
+            }
+        }
     }
     SURelease(parameterIterator);
     return 0;
@@ -88,7 +112,8 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
             SUList * parameters = NULL;
             SUIterator * parameterIterator = SUListCreateIterator(parameterList);
             while ((parameters = SUIteratorNext(parameterIterator))) {
-                int newScore = SUStatementScoreParametersWithVariables(parameters, variables);
+                SUList * parameterVariables = SUListCreate();
+                int newScore = SUStatementScoreParametersWithVariables(parameters, variables, parameterVariables);
                 if (newScore > score) {
                     SURelease(statements);
                     statements = SUListCreate();
@@ -97,10 +122,11 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
                     SUStatement * statement = malloc(sizeof(SUStatement));
                     SUInitialize(statement, NULL, NULL, suess_statement_free);
                     statement->function = SURetain(function);
-                    statement->parameters = SURetain(parameters);
+                    statement->parameters = SURetain(parameterVariables);
                     SUListAddValue(statements, statement);
                     SURelease(statement);
                 }
+                SURelease(parameterVariables);
             }
             SURelease(parameterIterator);
         }
@@ -120,15 +146,21 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
         statement = SURetain(SUStatementTieBreaker(statements));
         
         // Add new variables to known list
-        SUList * parameter = NULL;
-        SUIterator * parameterIterator = SUListCreateIterator(statement->parameters);
-        while ((parameter = SUIteratorNext(parameterIterator)))
-            SUListAddValue(variables, parameter);
-        SURelease(parameterIterator);
+        SUType * variable = NULL;
+        SUIterator * variableIterator = SUListCreateIterator(statement->parameters);
+        while ((variable = SUIteratorNext(variableIterator))) {
+            if (SUTypeIsVariable(variable) && !SUListContainsValue(variables, variable))
+                SUListAddValue(variables, variable);
+        }
+        SURelease(variableIterator);
     }
     
     SURelease(statementTokens);
     SURelease(statements);
     
     return statement;
+}
+
+void SUStatementExecute(SUProgram * program, SUStatement * statement) {
+    SUFunctionExecute(program, statement->function, statement->parameters);
 }

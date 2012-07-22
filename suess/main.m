@@ -16,7 +16,17 @@
 #include "SUType.h"
 #include <sys/time.h>
 
-#define ITER 10000
+#define ITER 1
+
+void write_string(SUString * string, void * data) {
+    printf("%s", SUStringGetCString(string));
+}
+
+SUString * read_string(void * data) {
+    char input[1024];
+    scanf("%s", input);
+    return SUStringCreate(input);
+}
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -25,9 +35,16 @@ int main(int argc, const char * argv[]) {
         
         for (int i = 0; i < ITER; i++) {
             SUString * file = SUStringCreate(argv[1]);
+            if (!file) {
+                printf("Unable to read the file.");
+                continue;
+            }
+            
             SUList * tokens = SUTokenizeFile(file);
             SUList * errors = SUListCreate();
             SUProgram * program = SUProgramCreate(tokens, errors);
+            SUProgramSetWriteCallback(program, write_string, NULL);
+            SUProgramSetReadCallback(program, read_string, NULL);
             
             int shouldRun = 1;
             SUError * error = NULL;
@@ -45,7 +62,7 @@ int main(int argc, const char * argv[]) {
             }
             
             if (shouldRun) {
-                // TODO: Execute program
+                SUProgramExecute(program);
             }
             
             SURelease(errorIterator);
@@ -58,7 +75,7 @@ int main(int argc, const char * argv[]) {
         gettimeofday(&endTime, NULL);
         
         double time = (((endTime.tv_sec - startTime.tv_sec) * 1000000.0) + (endTime.tv_usec - startTime.tv_usec));
-        printf("Average Time = %.0f microseconds\n", time/ITER);
+        printf("Time = %.0f microseconds\n", time/ITER);
     }
     return 0;
 }

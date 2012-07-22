@@ -22,6 +22,7 @@ void SUListAddValue(SUList * list, SUTypeRef value);
 unsigned int SUListGetLength(SUList * list);
 SUTypeRef SUListGetValueAtIndex(SUList * list, unsigned int index);
 unsigned int SUListIndexOfValue(SUList * list, SUTypeRef value);
+int SUListContainsValue(SUList * list, SUTypeRef);
 void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index);
 SUList * SUListCreateSublistWithRange(SUList * list, SURange range);
 struct suess_iterator * SUListCreateIterator(SUList * list);

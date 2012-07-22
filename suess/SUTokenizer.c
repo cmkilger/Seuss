@@ -59,6 +59,9 @@ unsigned int SUTokenGetLine(SUToken * token) {
 SUList * SUTokenizeFile(SUString * filename) {
     FILE * file = fopen(SUStringGetCString(filename), "r");
     
+    if (!file)
+        return NULL;
+    
     // File size
     fseek(file, 0, SEEK_END);
     long filesize = ftell(file);
@@ -229,8 +232,8 @@ SUList * SUTokenizeFile(SUString * filename) {
                         j++;
                     }
                     j++;
-                    char * value = calloc(sizeof(char), j+1);
-                    strncpy(value, &(buffer[i]), j);
+                    char * value = calloc(sizeof(char), j-1);
+                    strncpy(value, &(buffer[i+1]), j-2);
                     token = SUTokenCreate(SUTokenTypeString, value, filename, line);
                     free(value);
                     i += j-1;

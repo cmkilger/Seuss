@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A3E362915B7CEA300C3C268 /* SUError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E362815B7CEA200C3C268 /* SUError.c */; };
+		9A3E363D15BA406100C3C268 /* SUVariable.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E363C15BA406100C3C268 /* SUVariable.c */; };
 		9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD2D15A80BB300CF9849 /* Foundation.framework */; };
 		9ABEAD3115A80BB300CF9849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* main.m */; };
 		9ABEAD3515A80BB300CF9849 /* suess.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* suess.1 */; };
@@ -42,6 +43,9 @@
 		9A1E3BAA15B3CD04007C10C8 /* SURange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SURange.h; sourceTree = "<group>"; };
 		9A3E362715B7CE9200C3C268 /* SUError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUError.h; sourceTree = "<group>"; };
 		9A3E362815B7CEA200C3C268 /* SUError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUError.c; sourceTree = "<group>"; };
+		9A3E363A15BA405200C3C268 /* SUVariable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUVariable.h; sourceTree = "<group>"; };
+		9A3E363C15BA406100C3C268 /* SUVariable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUVariable.c; sourceTree = "<group>"; };
+		9AAA83AA15B8FF310010E810 /* madlib.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = madlib.suess; sourceTree = SOURCE_ROOT; };
 		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				9ABEAD3415A80BB300CF9849 /* suess.1 */,
 				9ABEAD3215A80BB300CF9849 /* Supporting Files */,
 				9ABEAD3B15A80C0200CF9849 /* sample.suess */,
+				9AAA83AA15B8FF310010E810 /* madlib.suess */,
 			);
 			path = suess;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				9ABEAD8615B13A4900CF9849 /* SUProgram.h */,
 				9A1E3BAA15B3CD04007C10C8 /* SURange.h */,
 				9A3E362715B7CE9200C3C268 /* SUError.h */,
+				9A3E363A15BA405200C3C268 /* SUVariable.h */,
 			);
 			name = Public;
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 				9ABEAD6715B130B400CF9849 /* SUStatement.c */,
 				9ABEAD8415B13A0900CF9849 /* SUProgram.c */,
 				9A3E362815B7CEA200C3C268 /* SUError.c */,
+				9A3E363C15BA406100C3C268 /* SUVariable.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -339,6 +346,7 @@
 				9ABEAD6815B130B500CF9849 /* SUStatement.c in Sources */,
 				9ABEAD8515B13A0900CF9849 /* SUProgram.c in Sources */,
 				9A3E362915B7CEA300C3C268 /* SUError.c in Sources */,
+				9A3E363D15BA406100C3C268 /* SUVariable.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

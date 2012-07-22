@@ -10,6 +10,7 @@
 #include "SUTypeInternal.h"
 #include <string.h>
 #include <ctype.h>
+#include <assert.h>
 
 struct suess_string {
     SUType __base;
@@ -51,6 +52,7 @@ const char * SUStringGetCString(SUString * string) {
 }
 
 int SUStringEqual(SUString * string1, SUString * string2) {
+    assert(string1->__base.free == suess_string_free && string2->__base.free == suess_string_free);
     size_t length1 = SUStringGetLength(string1);
     size_t length2 = SUStringGetLength(string2);
     if (length1 != length2)
