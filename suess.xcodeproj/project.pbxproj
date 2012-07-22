@@ -7,24 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A3E362915B7CEA300C3C268 /* SUError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E362815B7CEA200C3C268 /* SUError.c */; };
-		9A3E363D15BA406100C3C268 /* SUVariable.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E363C15BA406100C3C268 /* SUVariable.c */; };
+		9AB7848D15BBC43A002CEE23 /* SUType.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5315AD275900CF9849 /* SUType.c */; };
+		9AB7848E15BBC43A002CEE23 /* SUTokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */; };
+		9AB7848F15BBC43A002CEE23 /* SUList.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4C15AC1A3C00CF9849 /* SUList.c */; };
+		9AB7849015BBC43A002CEE23 /* SUIterator.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5915AD552700CF9849 /* SUIterator.c */; };
+		9AB7849115BBC43A002CEE23 /* SUString.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6115AEBCB200CF9849 /* SUString.c */; };
+		9AB7849215BBC43A002CEE23 /* SUFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6415AFED2E00CF9849 /* SUFunction.c */; };
+		9AB7849315BBC43A002CEE23 /* SUStatement.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6715B130B400CF9849 /* SUStatement.c */; };
+		9AB7849415BBC43A002CEE23 /* SUProgram.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD8415B13A0900CF9849 /* SUProgram.c */; };
+		9AB7849515BBC43A002CEE23 /* SUError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E362815B7CEA200C3C268 /* SUError.c */; };
+		9AB7849615BBC43A002CEE23 /* SUVariable.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E363C15BA406100C3C268 /* SUVariable.c */; };
+		9AB7849715BBC46A002CEE23 /* libsuess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB7848915BBC406002CEE23 /* libsuess.a */; };
 		9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD2D15A80BB300CF9849 /* Foundation.framework */; };
 		9ABEAD3115A80BB300CF9849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* main.m */; };
 		9ABEAD3515A80BB300CF9849 /* suess.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* suess.1 */; };
-		9ABEAD4615AA99BC00CF9849 /* SUTokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */; };
-		9ABEAD4D15AC1A3C00CF9849 /* SUList.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD4C15AC1A3C00CF9849 /* SUList.c */; };
-		9ABEAD5415AD275900CF9849 /* SUType.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5315AD275900CF9849 /* SUType.c */; };
-		9ABEAD5A15AD552700CF9849 /* SUIterator.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD5915AD552700CF9849 /* SUIterator.c */; };
-		9ABEAD6215AEBCB300CF9849 /* SUString.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6115AEBCB200CF9849 /* SUString.c */; };
-		9ABEAD6515AFED2F00CF9849 /* SUFunction.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6415AFED2E00CF9849 /* SUFunction.c */; };
-		9ABEAD6815B130B500CF9849 /* SUStatement.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD6715B130B400CF9849 /* SUStatement.c */; };
 		9ABEAD7015B1369300CF9849 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD6F15B1369300CF9849 /* SenTestingKit.framework */; };
 		9ABEAD7215B1369300CF9849 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD7115B1369300CF9849 /* Cocoa.framework */; };
 		9ABEAD7C15B1369400CF9849 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ABEAD7A15B1369400CF9849 /* InfoPlist.strings */; };
 		9ABEAD7F15B1369400CF9849 /* SUFunctionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD7E15B1369400CF9849 /* SUFunctionTests.m */; };
-		9ABEAD8515B13A0900CF9849 /* SUProgram.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD8415B13A0900CF9849 /* SUProgram.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9AB7849815BBC471002CEE23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9ABEAD2015A80BB200CF9849 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9AB7848815BBC406002CEE23;
+			remoteInfo = libsuess;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9ABEAD2715A80BB300CF9849 /* CopyFiles */ = {
@@ -47,6 +58,7 @@
 		9A3E363C15BA406100C3C268 /* SUVariable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUVariable.c; sourceTree = "<group>"; };
 		9AAA83AA15B8FF310010E810 /* madlib.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = madlib.suess; sourceTree = SOURCE_ROOT; };
 		9AB7848415BBC021002CEE23 /* Suess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suess.h; sourceTree = "<group>"; };
+		9AB7848915BBC406002CEE23 /* libsuess.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsuess.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,10 +97,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9AB7848615BBC406002CEE23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9ABEAD2615A80BB300CF9849 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB7849715BBC46A002CEE23 /* libsuess.a in Frameworks */,
 				9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +140,7 @@
 			children = (
 				9ABEAD2915A80BB300CF9849 /* suess */,
 				9ABEAD6E15B1369300CF9849 /* suessTests.octest */,
+				9AB7848915BBC406002CEE23 /* libsuess.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,7 +264,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		9AB7848715BBC406002CEE23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		9AB7848815BBC406002CEE23 /* libsuess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9AB7848A15BBC406002CEE23 /* Build configuration list for PBXNativeTarget "libsuess" */;
+			buildPhases = (
+				9AB7848515BBC406002CEE23 /* Sources */,
+				9AB7848615BBC406002CEE23 /* Frameworks */,
+				9AB7848715BBC406002CEE23 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libsuess;
+			productName = libsuess;
+			productReference = 9AB7848915BBC406002CEE23 /* libsuess.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		9ABEAD2815A80BB300CF9849 /* suess */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9ABEAD3815A80BB300CF9849 /* Build configuration list for PBXNativeTarget "suess" */;
@@ -255,6 +303,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9AB7849915BBC471002CEE23 /* PBXTargetDependency */,
 			);
 			name = suess;
 			productName = suess;
@@ -301,6 +350,7 @@
 			projectRoot = "";
 			targets = (
 				9ABEAD2815A80BB300CF9849 /* suess */,
+				9AB7848815BBC406002CEE23 /* libsuess */,
 				9ABEAD6D15B1369300CF9849 /* suessTests */,
 			);
 		};
@@ -334,21 +384,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9AB7848515BBC406002CEE23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AB7848D15BBC43A002CEE23 /* SUType.c in Sources */,
+				9AB7848E15BBC43A002CEE23 /* SUTokenizer.c in Sources */,
+				9AB7848F15BBC43A002CEE23 /* SUList.c in Sources */,
+				9AB7849015BBC43A002CEE23 /* SUIterator.c in Sources */,
+				9AB7849115BBC43A002CEE23 /* SUString.c in Sources */,
+				9AB7849215BBC43A002CEE23 /* SUFunction.c in Sources */,
+				9AB7849315BBC43A002CEE23 /* SUStatement.c in Sources */,
+				9AB7849415BBC43A002CEE23 /* SUProgram.c in Sources */,
+				9AB7849515BBC43A002CEE23 /* SUError.c in Sources */,
+				9AB7849615BBC43A002CEE23 /* SUVariable.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9ABEAD2515A80BB300CF9849 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9ABEAD3115A80BB300CF9849 /* main.m in Sources */,
-				9ABEAD4615AA99BC00CF9849 /* SUTokenizer.c in Sources */,
-				9ABEAD4D15AC1A3C00CF9849 /* SUList.c in Sources */,
-				9ABEAD5415AD275900CF9849 /* SUType.c in Sources */,
-				9ABEAD5A15AD552700CF9849 /* SUIterator.c in Sources */,
-				9ABEAD6215AEBCB300CF9849 /* SUString.c in Sources */,
-				9ABEAD6515AFED2F00CF9849 /* SUFunction.c in Sources */,
-				9ABEAD6815B130B500CF9849 /* SUStatement.c in Sources */,
-				9ABEAD8515B13A0900CF9849 /* SUProgram.c in Sources */,
-				9A3E362915B7CEA300C3C268 /* SUError.c in Sources */,
-				9A3E363D15BA406100C3C268 /* SUVariable.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +419,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9AB7849915BBC471002CEE23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9AB7848815BBC406002CEE23 /* libsuess */;
+			targetProxy = 9AB7849815BBC471002CEE23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		9ABEAD7A15B1369400CF9849 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -374,6 +439,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9AB7848B15BBC406002CEE23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = suess;
+			};
+			name = Debug;
+		};
+		9AB7848C15BBC406002CEE23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = suess;
+			};
+			name = Release;
+		};
 		9ABEAD3615A80BB300CF9849 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -466,6 +547,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9AB7848A15BBC406002CEE23 /* Build configuration list for PBXNativeTarget "libsuess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AB7848B15BBC406002CEE23 /* Debug */,
+				9AB7848C15BBC406002CEE23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9ABEAD2315A80BB200CF9849 /* Build configuration list for PBXProject "suess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
