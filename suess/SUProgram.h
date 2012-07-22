@@ -19,6 +19,9 @@ typedef struct suess_string *(*SUProgramReadCallback)(void *);
 typedef struct suess_program SUProgram;
 
 SUProgram * SUProgramCreate(struct suess_list * tokens, struct suess_list * errors);
+struct suess_list * SUProgramGetFunctions(SUProgram * program);
+struct suess_list * SUProgramGetStatements(SUProgram * program);
+struct suess_list * SUProgramGetVariables(SUProgram * program);
 void SUProgramExecute(SUProgram * program);
 void SUProgramSetWriteCallback(SUProgram * program, SUProgramWriteCallback writeCallback, void * userData);
 void SUProgramSetReadCallback(SUProgram * program, SUProgramReadCallback readCallback, void * userData);

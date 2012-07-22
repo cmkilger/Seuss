@@ -161,6 +161,14 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
     return statement;
 }
 
+SUFunction * SUStatementGetFunction(SUStatement * statement) {
+    return statement->function;
+}
+
+SUList * SUStatementGetParameters(SUStatement * statement) {
+    return statement->parameters;
+}
+
 void SUStatementExecute(SUProgram * program, SUStatement * statement) {
     SUFunctionExecute(program, statement->function, statement->parameters);
 }

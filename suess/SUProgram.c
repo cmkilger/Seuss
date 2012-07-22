@@ -21,6 +21,7 @@ struct suess_program {
     SUType __base;
     SUList * functions;
     SUList * statements;
+    SUList * variables;
     void * writeData;
     SUProgramWriteCallback writeCallback;
     void * readData;
@@ -33,6 +34,8 @@ void suess_program_free(SUTypeRef type) {
         SURelease(program->functions);
     if (program->statements)
         SURelease(program->statements);
+    if (program->variables)
+        SURelease(program->variables);
     suess_free(type);
 }
 
@@ -70,15 +73,27 @@ SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
             } break;
         }
     }
-    SURelease(variables);
     SURelease(iterator);
     
     SUProgram * program = malloc(sizeof(SUProgram));
     SUInitialize(program, NULL, NULL, suess_program_free);
     program->functions = functions;
     program->statements = statements;
+    program->variables = variables;
     
     return program;
+}
+
+SUList * SUProgramGetFunctions(SUProgram * program) {
+    return program->functions;
+}
+
+SUList * SUProgramGetStatements(SUProgram * program) {
+    return program->statements;
+}
+
+SUList * SUProgramGetVariables(SUProgram * program) {
+    return program->variables;
 }
 
 void SUProgramExecute(SUProgram * program) {

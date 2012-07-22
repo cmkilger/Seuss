@@ -302,6 +302,10 @@ SUList * SUFunctionCreateParametersForStatementTokens(SUFunction * function, SUL
     return SUFunctionCreateListOfParameters(tokens, 1, function, 0);
 }
 
+struct suess_list * SUFunctionGetSignature(SUFunction * function) {
+    return function->signature;
+}
+
 void suess_standard_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
     SUStatement * statement = NULL;
     SUIterator * statementIterator = SUListCreateIterator(function->statements);
