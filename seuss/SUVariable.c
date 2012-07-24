@@ -1,6 +1,6 @@
 //
 //  SUVariable.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/20/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -12,30 +12,30 @@
 #include "SUString.h"
 #include "SUList.h"
 
-struct suess_variable {
+struct seuss_variable {
     SUType __base;
     SUList * name;
     SUTypeRef value;
 };
 
-void suess_variable_free(SUTypeRef type) {
+void seuss_variable_free(SUTypeRef type) {
     SUVariable * variable = type;
     if (variable->name)
         SURelease(variable->name);
     if (variable->value)
         SURelease(variable->value);
-    suess_free(variable);
+    seuss_free(variable);
 }
 
-SUVariable * SUVariableCreate(struct suess_list * name) {
+SUVariable * SUVariableCreate(struct seuss_list * name) {
     SUVariable * variable = malloc(sizeof(SUVariable));
-    SUInitialize(variable, NULL, NULL, suess_variable_free);
+    SUInitialize(variable, NULL, NULL, seuss_variable_free);
     variable->name = SURetain(name);
     variable->value = NULL;
     return variable;
 }
 
-struct suess_list * SUVariableGetName(SUVariable * variable) {
+struct seuss_list * SUVariableGetName(SUVariable * variable) {
     return variable->name;
 }
 
@@ -54,10 +54,10 @@ void SUVariableSetValue(SUVariable * variable, void * value) {
 }
 
 int SUTypeIsVariable(SUType * type) {
-    return (type->free == suess_variable_free);
+    return (type->free == seuss_variable_free);
 }
 
-struct suess_list * SUVariableCreateBuiltins() {
+struct seuss_list * SUVariableCreateBuiltins() {
     SUList * variables = SUListCreate();
     
     SUList * tokens = SUListCreate();

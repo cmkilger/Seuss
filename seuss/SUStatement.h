@@ -1,25 +1,25 @@
 //
 //  SUStatement.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/13/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUStatement_h
-#define suess_SUStatement_h
+#ifndef seuss_SUStatement_h
+#define seuss_SUStatement_h
 
-struct suess_list;
-struct suess_iterator;
-struct suess_token;
-struct suess_program;
-struct suess_function;
+struct seuss_list;
+struct seuss_iterator;
+struct seuss_token;
+struct seuss_program;
+struct seuss_function;
 
-typedef struct suess_statement SUStatement;
+typedef struct seuss_statement SUStatement;
 
-SUStatement * SUStatementCreate(struct suess_list * functions, struct suess_list * variables, struct suess_iterator * iterator, struct suess_token * currentToken, struct suess_list * errors);
-struct suess_function * SUStatementGetFunction(SUStatement * statement);
-struct suess_list * SUStatementGetParameters(SUStatement * statement);
-void SUStatementExecute(struct suess_program * program, SUStatement * statement);
+SUStatement * SUStatementCreate(struct seuss_list * functions, struct seuss_list * variables, struct seuss_iterator * iterator, struct seuss_token * currentToken, struct seuss_list * errors);
+struct seuss_function * SUStatementGetFunction(SUStatement * statement);
+struct seuss_list * SUStatementGetParameters(SUStatement * statement);
+void SUStatementExecute(struct seuss_program * program, SUStatement * statement);
 
 #endif

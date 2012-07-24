@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'suessTests' target in the 'suessTests' project
+// Prefix header for all source files of the 'seussTests' target in the 'seussTests' project
 //
 
 #ifdef __OBJC__

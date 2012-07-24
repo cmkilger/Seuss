@@ -1,6 +1,6 @@
 //
 //  SUList.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/10/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -12,35 +12,35 @@
 #include <stdlib.h>
 #include <assert.h>
 
-void suess_list_free(SUTypeRef type) {
+void seuss_list_free(SUTypeRef type) {
     SUList * list = type;
     if (list->head)
         SURelease(list->head);
-    suess_free(type);
+    seuss_free(type);
 }
 
 SUList * SUListCreate() {
     SUList * list = malloc(sizeof(SUList));
-    SUInitialize(list, NULL, NULL, suess_list_free);
+    SUInitialize(list, NULL, NULL, seuss_list_free);
     list->head = NULL;
     list->tail = NULL;
     list->length = 0;
     return list;
 }
 
-void suess_list_node_free(SUTypeRef type) {
+void seuss_list_node_free(SUTypeRef type) {
     SUListNode * node = type;
     if (node->next)
         SURelease(node->next);
     SURelease(node->value);
-    suess_free(type);
+    seuss_free(type);
 }
 
 void SUListAddValue(SUList * list, void * value) {
     assert(value != NULL);
     
     SUListNode * new = malloc(sizeof(SUListNode));
-    SUInitialize(new, NULL, NULL, suess_list_node_free);
+    SUInitialize(new, NULL, NULL, seuss_list_node_free);
     new->value = SURetain(value);
     new->next = NULL;
     SUListNode * node = list->tail;
@@ -99,7 +99,7 @@ void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index) {
     assert(index <= list->length);
     
     SUListNode * new = malloc(sizeof(SUListNode));
-    SUInitialize(new, NULL, NULL, suess_list_node_free);
+    SUInitialize(new, NULL, NULL, seuss_list_node_free);
     new->value = SURetain(value);
     
     if (index == 0) {

@@ -1,17 +1,17 @@
 //
 //  SURange.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/15/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SURange_h
-#define suess_SURange_h
+#ifndef seuss_SURange_h
+#define seuss_SURange_h
 
 #include <stdlib.h>
 
-typedef struct suess_range {
+typedef struct seuss_range {
     size_t location;
     size_t length;
 } SURange;

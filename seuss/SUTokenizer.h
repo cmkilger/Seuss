@@ -1,13 +1,13 @@
 //
 //  SUTokenizer.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/8/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUTokenizer_h
-#define suess_SUTokenizer_h
+#ifndef seuss_SUTokenizer_h
+#define seuss_SUTokenizer_h
 
 typedef enum {
     SUTokenTypeWord,
@@ -29,17 +29,17 @@ typedef enum {
     SUTokenTypeUndefined,
 } SUTokenType;
 
-struct suess_list;
-struct suess_string;
+struct seuss_list;
+struct seuss_string;
 
-typedef struct suess_token SUToken;
+typedef struct seuss_token SUToken;
 
-SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, struct suess_string * file, unsigned int line);
+SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, struct seuss_string * file, unsigned int line);
 SUTokenType SUTokenGetType(SUToken * token);
-struct suess_string * SUTokenGetValue(SUToken * token);
-struct suess_string * SUTokenGetFile(SUToken * token);
+struct seuss_string * SUTokenGetValue(SUToken * token);
+struct seuss_string * SUTokenGetFile(SUToken * token);
 unsigned int SUTokenGetLine(SUToken * token);
 
-struct suess_list * SUTokenizeFile(struct suess_string * filename);
+struct seuss_list * SUTokenizeFile(struct seuss_string * filename);
 
 #endif

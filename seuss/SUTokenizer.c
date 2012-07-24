@@ -1,6 +1,6 @@
 //
 //  SUTokenizer.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/8/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -15,7 +15,7 @@
 #include <string.h>
 #include <ctype.h>
 
-struct suess_token {
+struct seuss_token {
     SUType __base;
     SUTokenType type;
     SUString * value;
@@ -23,16 +23,16 @@ struct suess_token {
     unsigned int line;
 };
 
-void suess_token_free(SUTypeRef type) {
+void seuss_token_free(SUTypeRef type) {
     SUToken * token = type;
     SURelease(token->value);
     SURelease(token->file);
-    suess_free(type);
+    seuss_free(type);
 }
 
 SUToken * SUTokenCreate(SUTokenType tokenType, const char * value, SUString * file, unsigned int line) {
     SUToken * token = malloc(sizeof(SUToken));
-    SUInitialize(token, NULL, NULL, suess_token_free);
+    SUInitialize(token, NULL, NULL, seuss_token_free);
     token->type = tokenType;
     token->value = SUStringCreate(value);
     token->file = SURetain(file);
@@ -48,7 +48,7 @@ SUString *  SUTokenGetValue(SUToken * token) {
     return token->value;
 }
 
-struct suess_string * SUTokenGetFile(SUToken * token) {
+struct seuss_string * SUTokenGetFile(SUToken * token) {
     return token->file;
 }
 

@@ -1,13 +1,13 @@
 //
-//  suess.h
-//  suess
+//  seuss.h
+//  seuss
 //
 //  Created by Cory Kilger on 7/21/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_Suess_h
-#define suess_Suess_h
+#ifndef seuss_Seuss_h
+#define seuss_Seuss_h
 
 #include "SUType.h"
 #include "SUTokenizer.h"

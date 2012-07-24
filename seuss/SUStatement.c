@@ -1,6 +1,6 @@
 //
 //  SUStatement.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/13/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -19,17 +19,17 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct suess_statement {
+struct seuss_statement {
     SUType __base;
     SUFunction * function;
     SUList * parameters;
 };
 
-void suess_statement_free(SUTypeRef type) {
+void seuss_statement_free(SUTypeRef type) {
     SUStatement * statement = type;
     SURelease(statement->function);
     SURelease(statement->parameters);
-    suess_free(type);
+    seuss_free(type);
 }
 
 SUStatement * SUStatementTieBreaker(SUList * statements) {
@@ -120,7 +120,7 @@ SUStatement * SUStatementCreate(SUList * functions, SUList * variables, SUIterat
                 }
                 if (newScore >= score) {
                     SUStatement * statement = malloc(sizeof(SUStatement));
-                    SUInitialize(statement, NULL, NULL, suess_statement_free);
+                    SUInitialize(statement, NULL, NULL, seuss_statement_free);
                     statement->function = SURetain(function);
                     statement->parameters = SURetain(parameterVariables);
                     SUListAddValue(statements, statement);

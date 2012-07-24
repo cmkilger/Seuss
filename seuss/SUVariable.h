@@ -1,24 +1,24 @@
 //
 //  SUVariable.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/20/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUVariable_h
-#define suess_SUVariable_h
+#ifndef seuss_SUVariable_h
+#define seuss_SUVariable_h
 
-struct suess_type;
-struct suess_list;
+struct seuss_type;
+struct seuss_list;
 
-typedef struct suess_variable SUVariable;
+typedef struct seuss_variable SUVariable;
 
-SUVariable * SUVariableCreate(struct suess_list * name);
-struct suess_list * SUVariableGetName(SUVariable * variable);
+SUVariable * SUVariableCreate(struct seuss_list * name);
+struct seuss_list * SUVariableGetName(SUVariable * variable);
 void * SUVariableGetValue(SUVariable * variable);
 void SUVariableSetValue(SUVariable * variable, void * value);
-int SUTypeIsVariable(struct suess_type * type);
-struct suess_list * SUVariableCreateBuiltins();
+int SUTypeIsVariable(struct seuss_type * type);
+struct seuss_list * SUVariableCreateBuiltins();
 
 #endif

@@ -1,27 +1,27 @@
 //
 //  SUListInternal.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/12/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUListInternal_h
-#define suess_SUListInternal_h
+#ifndef seuss_SUListInternal_h
+#define seuss_SUListInternal_h
 
 #include "SUList.h"
 #include "SUTypeInternal.h"
 
-typedef struct suess_list_node {
+typedef struct seuss_list_node {
     SUType __base;
     void * value;
-    struct suess_list_node * next;
+    struct seuss_list_node * next;
 } SUListNode;
 
-struct suess_list {
+struct seuss_list {
     SUType __base;
-    struct suess_list_node * head;
-    struct suess_list_node * tail;
+    struct seuss_list_node * head;
+    struct seuss_list_node * tail;
     unsigned int length;
 };
 

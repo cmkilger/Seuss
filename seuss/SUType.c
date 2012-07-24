@@ -1,6 +1,6 @@
 //
 //  SUType.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/10/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -16,17 +16,17 @@ void SUInitialize(SUTypeRef typeRef, SUTypeRef(*retain)(SUTypeRef), void(*releas
     if (retain)
         type->retain = retain;
     else
-        type->retain = suess_retain;
+        type->retain = seuss_retain;
     
     if (release)
         type->release = release;
     else
-        type->release = suess_release;
+        type->release = seuss_release;
     
     if (free)
         type->free = free;
     else
-        type->free = suess_free;
+        type->free = seuss_free;
 }
 
 SUTypeRef SURetain(SUTypeRef type) {

@@ -1,6 +1,6 @@
 //
 //  SUError.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/18/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -10,7 +10,7 @@
 #include "SUTypeInternal.h"
 #include "SUString.h"
 
-struct suess_error {
+struct seuss_error {
     SUType __base;
     SUErrorType type;
     SUString * file;
@@ -18,18 +18,18 @@ struct suess_error {
     SUString * message;
 };
 
-void suess_error_free(SUTypeRef type) {
+void seuss_error_free(SUTypeRef type) {
     SUError * error = type;
     if (error->file)
         SURelease(error->file);
     if (error->message)
         SURelease(error->message);
-    suess_free(error);
+    seuss_free(error);
 }
 
-SUError * SUErrorCreate(SUErrorType type, struct suess_string * file, unsigned int line, struct suess_string * message) {
+SUError * SUErrorCreate(SUErrorType type, struct seuss_string * file, unsigned int line, struct seuss_string * message) {
     SUError * error = malloc(sizeof(SUError));
-    SUInitialize(error, NULL, NULL, suess_error_free);
+    SUInitialize(error, NULL, NULL, seuss_error_free);
     error->type = type;
     error->file = SURetain(file);
     error->line = line;
@@ -41,7 +41,7 @@ SUErrorType SUErrorGetType(SUError * error) {
     return error->type;
 }
 
-struct suess_string * SUErrorGetFile(SUError * error) {
+struct seuss_string * SUErrorGetFile(SUError * error) {
     return error->file;
 }
 
@@ -49,6 +49,6 @@ unsigned int SUErrorGetLine(SUError * error) {
     return error->line;
 }
 
-struct suess_string * SUErrorGetMessage(SUError * error) {
+struct seuss_string * SUErrorGetMessage(SUError * error) {
     return error->message;
 }

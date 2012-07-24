@@ -1,6 +1,6 @@
 //
 //  SUProgram.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/13/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -17,7 +17,7 @@
 #include "SUString.h"
 #include "SUError.h"
 
-struct suess_program {
+struct seuss_program {
     SUType __base;
     SUList * functions;
     SUList * statements;
@@ -28,7 +28,7 @@ struct suess_program {
     SUProgramReadCallback readCallback;
 };
 
-void suess_program_free(SUTypeRef type) {
+void seuss_program_free(SUTypeRef type) {
     SUProgram * program = type;
     if (program->functions)
         SURelease(program->functions);
@@ -36,7 +36,7 @@ void suess_program_free(SUTypeRef type) {
         SURelease(program->statements);
     if (program->variables)
         SURelease(program->variables);
-    suess_free(type);
+    seuss_free(type);
 }
 
 SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
@@ -76,7 +76,7 @@ SUProgram * SUProgramCreate(SUList * tokens, SUList * errors) {
     SURelease(iterator);
     
     SUProgram * program = malloc(sizeof(SUProgram));
-    SUInitialize(program, NULL, NULL, suess_program_free);
+    SUInitialize(program, NULL, NULL, seuss_program_free);
     program->functions = functions;
     program->statements = statements;
     program->variables = variables;

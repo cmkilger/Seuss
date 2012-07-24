@@ -1,6 +1,6 @@
 //
 //  SUString.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/12/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -12,22 +12,22 @@
 #include <ctype.h>
 #include <assert.h>
 
-struct suess_string {
+struct seuss_string {
     SUType __base;
     const char * string;
     size_t length;
 };
 
-void suess_string_free(SUTypeRef type) {
+void seuss_string_free(SUTypeRef type) {
     SUString * string = type;
     if (string->length > 0)
         free((char *)string->string);
-    suess_free(type);
+    seuss_free(type);
 }
 
 SUString * SUStringCreate(const char * cString) {
     SUString * string = malloc(sizeof(SUString));
-    SUInitialize(string, NULL, NULL, suess_string_free);
+    SUInitialize(string, NULL, NULL, seuss_string_free);
     size_t length = 0;
     if (cString && (length = strlen(cString)) > 0) {
         char * buffer = malloc(sizeof(char)*(length+1));
@@ -52,7 +52,7 @@ const char * SUStringGetCString(SUString * string) {
 }
 
 int SUStringEqual(SUString * string1, SUString * string2) {
-    assert(string1->__base.free == suess_string_free && string2->__base.free == suess_string_free);
+    assert(string1->__base.free == seuss_string_free && string2->__base.free == seuss_string_free);
     size_t length1 = SUStringGetLength(string1);
     size_t length2 = SUStringGetLength(string2);
     if (length1 != length2)

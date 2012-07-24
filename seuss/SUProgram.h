@@ -1,27 +1,27 @@
 //
 //  SUProgram.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/13/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUProgram_h
-#define suess_SUProgram_h
+#ifndef seuss_SUProgram_h
+#define seuss_SUProgram_h
 
-struct suess_iterator;
-struct suess_list;
-struct suess_string;
+struct seuss_iterator;
+struct seuss_list;
+struct seuss_string;
 
-typedef void(*SUProgramWriteCallback)(struct suess_string *, void *);
-typedef struct suess_string *(*SUProgramReadCallback)(void *);
+typedef void(*SUProgramWriteCallback)(struct seuss_string *, void *);
+typedef struct seuss_string *(*SUProgramReadCallback)(void *);
 
-typedef struct suess_program SUProgram;
+typedef struct seuss_program SUProgram;
 
-SUProgram * SUProgramCreate(struct suess_list * tokens, struct suess_list * errors);
-struct suess_list * SUProgramGetFunctions(SUProgram * program);
-struct suess_list * SUProgramGetStatements(SUProgram * program);
-struct suess_list * SUProgramGetVariables(SUProgram * program);
+SUProgram * SUProgramCreate(struct seuss_list * tokens, struct seuss_list * errors);
+struct seuss_list * SUProgramGetFunctions(SUProgram * program);
+struct seuss_list * SUProgramGetStatements(SUProgram * program);
+struct seuss_list * SUProgramGetVariables(SUProgram * program);
 void SUProgramExecute(SUProgram * program);
 void SUProgramSetWriteCallback(SUProgram * program, SUProgramWriteCallback writeCallback, void * userData);
 void SUProgramSetReadCallback(SUProgram * program, SUProgramReadCallback readCallback, void * userData);

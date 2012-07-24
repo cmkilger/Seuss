@@ -1,6 +1,6 @@
 //
 //  SUFunction.c
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/12/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -25,7 +25,7 @@ typedef enum {
     SUFunctionWordTypeParameter,
 } SUFunctionWordType;
 
-struct suess_function {
+struct seuss_function {
     SUType __base;
     SUList * signature;
     SUList * parameters;
@@ -33,7 +33,7 @@ struct suess_function {
     void(*executor)(SUProgram *, SUFunction *, SUList *);
 };
 
-void suess_function_free(SUTypeRef type) {
+void seuss_function_free(SUTypeRef type) {
     SUFunction * function = type;
     if (function->signature)
         SURelease(function->signature);
@@ -41,7 +41,7 @@ void suess_function_free(SUTypeRef type) {
         SURelease(function->parameters);
     if (function->statements)
         SURelease(function->statements);
-    suess_free(type);
+    seuss_free(type);
 }
 
 int SUFunctionMatchesDeclaration(SUFunction * function, SUList * declaration) {
@@ -202,7 +202,7 @@ SUFunction * SUFunctionCreate(SUList * functions, SUIterator * iterator, SUToken
     SURelease(variables);
     
     SUFunction * function = malloc(sizeof(SUFunction));
-    SUInitialize(function, NULL, NULL, suess_function_free);
+    SUInitialize(function, NULL, NULL, seuss_function_free);
     function->signature = signature;
     function->parameters = parameters;
     function->statements = statements;
@@ -302,11 +302,11 @@ SUList * SUFunctionCreateParametersForStatementTokens(SUFunction * function, SUL
     return SUFunctionCreateListOfParameters(tokens, 1, function, 0);
 }
 
-struct suess_list * SUFunctionGetSignature(SUFunction * function) {
+struct seuss_list * SUFunctionGetSignature(SUFunction * function) {
     return function->signature;
 }
 
-void suess_standard_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
+void seuss_standard_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
     SUStatement * statement = NULL;
     SUIterator * statementIterator = SUListCreateIterator(function->statements);
     while ((statement = SUIteratorNext(statementIterator))) {
@@ -319,10 +319,10 @@ void SUFunctionExecute(SUProgram * program, SUFunction * function, SUList * para
     if (function->executor)
         function->executor(program, function, parameters);
     else
-        suess_standard_executor(program, function, parameters);
+        seuss_standard_executor(program, function, parameters);
 }
 
-void suess_builtin_function_write_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
+void seuss_builtin_function_write_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
     assert(SUListGetLength(parameters) == 1);
     SUType * parameter = SUListGetValueAtIndex(parameters, 0);
     SUString * string = NULL;
@@ -339,7 +339,7 @@ void suess_builtin_function_write_executor(SUProgram * program, SUFunction * fun
     }
 }
 
-SUFunction * suess_builtin_function_write() {
+SUFunction * seuss_builtin_function_write() {
     SUString * writeName = SUStringCreate("Write");
     SUList * signatureWords = SUListCreate();
     SUList * signature = SUListCreate();
@@ -357,16 +357,16 @@ SUFunction * suess_builtin_function_write() {
     SURelease(parameterName);
     
     SUFunction * write = malloc(sizeof(SUFunction));
-    SUInitialize(write, NULL, NULL, suess_function_free);
+    SUInitialize(write, NULL, NULL, seuss_function_free);
     write->signature = signature;
     write->parameters = parameters;
     write->statements = NULL;
-    write->executor = suess_builtin_function_write_executor;
+    write->executor = seuss_builtin_function_write_executor;
     
     return write;
 }
 
-void suess_builtin_function_read_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
+void seuss_builtin_function_read_executor(SUProgram * program, SUFunction * function, SUList * parameters) {
     assert(SUListGetLength(parameters) == 1);
     SUVariable * variable = SUListGetValueAtIndex(parameters, 0);
     SUString *(*read_string)(void *) = SUProgramGetReadCallback(program);
@@ -375,7 +375,7 @@ void suess_builtin_function_read_executor(SUProgram * program, SUFunction * func
     SURelease(string);
 }
 
-SUFunction * suess_builtin_function_read() {
+SUFunction * seuss_builtin_function_read() {
     SUString * readName = SUStringCreate("Read");
     SUList * signatureWords = SUListCreate();
     SUList * signature = SUListCreate();
@@ -393,23 +393,23 @@ SUFunction * suess_builtin_function_read() {
     SURelease(parameterName);
     
     SUFunction * read = malloc(sizeof(SUFunction));
-    SUInitialize(read, NULL, NULL, suess_function_free);
+    SUInitialize(read, NULL, NULL, seuss_function_free);
     read->signature = signature;
     read->parameters = parameters;
     read->statements = NULL;
-    read->executor = suess_builtin_function_read_executor;
+    read->executor = seuss_builtin_function_read_executor;
     
     return read;
 }
 
-struct suess_list * SUFunctionCreateBuiltins() {
+struct seuss_list * SUFunctionCreateBuiltins() {
     SUList * functions = SUListCreate();
     
-    SUFunction * write = suess_builtin_function_write();
+    SUFunction * write = seuss_builtin_function_write();
     SUListAddValue(functions, write);
     SURelease(write);
     
-    SUFunction * read = suess_builtin_function_read();
+    SUFunction * read = seuss_builtin_function_read();
     SUListAddValue(functions, read);
     SURelease(read);
     

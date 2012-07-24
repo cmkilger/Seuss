@@ -1,25 +1,25 @@
 //
 //  SUIteratorInternal.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/12/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUIteratorInternal_h
-#define suess_SUIteratorInternal_h
+#ifndef seuss_SUIteratorInternal_h
+#define seuss_SUIteratorInternal_h
 
 #include "SUIterator.h"
 #include "SUTypeInternal.h"
 
-struct suess_list;
-struct suess_list_node;
+struct seuss_list;
+struct seuss_list_node;
 
-struct suess_iterator {
+struct seuss_iterator {
     SUType __base;
-    struct suess_list_node * next;
+    struct seuss_list_node * next;
 };
 
-SUIterator * SUIteratorCreateWithList(struct suess_list * list);
+SUIterator * SUIteratorCreateWithList(struct seuss_list * list);
 
 #endif

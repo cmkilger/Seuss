@@ -1,6 +1,6 @@
 //
 //  SUFunctionTests.m
-//  suessTests
+//  seussTests
 //
 //  Created by Cory Kilger on 7/13/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
@@ -26,7 +26,7 @@
 }
 
 - (void)testExample {
-    STFail(@"Unit tests are not implemented yet in suessTests");
+    STFail(@"Unit tests are not implemented yet in seussTests");
 }
 
 @end

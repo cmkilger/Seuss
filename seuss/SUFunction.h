@@ -1,25 +1,25 @@
 //
 //  SUFunction.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/12/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUFunction_h
-#define suess_SUFunction_h
+#ifndef seuss_SUFunction_h
+#define seuss_SUFunction_h
 
-struct suess_iterator;
-struct suess_token;
-struct suess_list;
-struct suess_program;
+struct seuss_iterator;
+struct seuss_token;
+struct seuss_list;
+struct seuss_program;
 
-typedef struct suess_function SUFunction;
+typedef struct seuss_function SUFunction;
 
-SUFunction * SUFunctionCreate(struct suess_list * functions, struct suess_iterator * iterator, struct suess_token * token, struct suess_list * errors);
-struct suess_list * SUFunctionGetSignature(SUFunction * function);
-struct suess_list * SUFunctionCreateBuiltins();
-struct suess_list * SUFunctionCreateParametersForStatementTokens(SUFunction * function, struct suess_list * tokens);
-void SUFunctionExecute(struct suess_program * program, SUFunction * function, struct suess_list * parameters);
+SUFunction * SUFunctionCreate(struct seuss_list * functions, struct seuss_iterator * iterator, struct seuss_token * token, struct seuss_list * errors);
+struct seuss_list * SUFunctionGetSignature(SUFunction * function);
+struct seuss_list * SUFunctionCreateBuiltins();
+struct seuss_list * SUFunctionCreateParametersForStatementTokens(SUFunction * function, struct seuss_list * tokens);
+void SUFunctionExecute(struct seuss_program * program, SUFunction * function, struct seuss_list * parameters);
 
 #endif

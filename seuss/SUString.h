@@ -1,17 +1,17 @@
 //
 //  SUString.h
-//  suess
+//  seuss
 //
 //  Created by Cory Kilger on 7/12/12.
 //  Copyright (c) 2012 Cory Kilger. All rights reserved.
 //
 
-#ifndef suess_SUString_h
-#define suess_SUString_h
+#ifndef seuss_SUString_h
+#define seuss_SUString_h
 
 #include <stdlib.h>
 
-typedef struct suess_string SUString;
+typedef struct seuss_string SUString;
 
 SUString * SUStringCreate(const char * cString);
 size_t SUStringGetLength(SUString * string);
