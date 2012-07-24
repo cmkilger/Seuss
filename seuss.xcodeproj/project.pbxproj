@@ -17,10 +17,10 @@
 		9AB7849415BBC43A002CEE23 /* SUProgram.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD8415B13A0900CF9849 /* SUProgram.c */; };
 		9AB7849515BBC43A002CEE23 /* SUError.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E362815B7CEA200C3C268 /* SUError.c */; };
 		9AB7849615BBC43A002CEE23 /* SUVariable.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E363C15BA406100C3C268 /* SUVariable.c */; };
-		9AB7849715BBC46A002CEE23 /* libsuess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB7848915BBC406002CEE23 /* libsuess.a */; };
+		9AB7849715BBC46A002CEE23 /* libseuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB7848915BBC406002CEE23 /* libseuss.a */; };
 		9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD2D15A80BB300CF9849 /* Foundation.framework */; };
 		9ABEAD3115A80BB300CF9849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* main.m */; };
-		9ABEAD3515A80BB300CF9849 /* suess.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* suess.1 */; };
+		9ABEAD3515A80BB300CF9849 /* seuss.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* seuss.1 */; };
 		9ABEAD7015B1369300CF9849 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD6F15B1369300CF9849 /* SenTestingKit.framework */; };
 		9ABEAD7215B1369300CF9849 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD7115B1369300CF9849 /* Cocoa.framework */; };
 		9ABEAD7C15B1369400CF9849 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9ABEAD7A15B1369400CF9849 /* InfoPlist.strings */; };
@@ -33,7 +33,7 @@
 			containerPortal = 9ABEAD2015A80BB200CF9849 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9AB7848815BBC406002CEE23;
-			remoteInfo = libsuess;
+			remoteInfo = libseuss;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -44,7 +44,7 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				9ABEAD3515A80BB300CF9849 /* suess.1 in CopyFiles */,
+				9ABEAD3515A80BB300CF9849 /* seuss.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -56,15 +56,15 @@
 		9A3E362815B7CEA200C3C268 /* SUError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUError.c; sourceTree = "<group>"; };
 		9A3E363A15BA405200C3C268 /* SUVariable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUVariable.h; sourceTree = "<group>"; };
 		9A3E363C15BA406100C3C268 /* SUVariable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUVariable.c; sourceTree = "<group>"; };
-		9AAA83AA15B8FF310010E810 /* madlib.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = madlib.suess; sourceTree = SOURCE_ROOT; };
-		9AB7848415BBC021002CEE23 /* Suess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suess.h; sourceTree = "<group>"; };
-		9AB7848915BBC406002CEE23 /* libsuess.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsuess.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9ABEAD2915A80BB300CF9849 /* suess */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = suess; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AAA83AA15B8FF310010E810 /* madlib.seuss */ = {isa = PBXFileReference; lastKnownFileType = text; path = madlib.seuss; sourceTree = SOURCE_ROOT; };
+		9AB7848415BBC021002CEE23 /* Seuss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seuss.h; sourceTree = "<group>"; };
+		9AB7848915BBC406002CEE23 /* libseuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libseuss.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ABEAD2915A80BB300CF9849 /* seuss */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = seuss; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9ABEAD3315A80BB300CF9849 /* suess-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "suess-Prefix.pch"; sourceTree = "<group>"; };
-		9ABEAD3415A80BB300CF9849 /* suess.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = suess.1; sourceTree = "<group>"; };
-		9ABEAD3B15A80C0200CF9849 /* sample.suess */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.suess; sourceTree = SOURCE_ROOT; };
+		9ABEAD3315A80BB300CF9849 /* seuss-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "seuss-Prefix.pch"; sourceTree = "<group>"; };
+		9ABEAD3415A80BB300CF9849 /* seuss.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = seuss.1; sourceTree = "<group>"; };
+		9ABEAD3B15A80C0200CF9849 /* sample.seuss */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.seuss; sourceTree = SOURCE_ROOT; };
 		9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUTokenizer.c; sourceTree = "<group>"; };
 		9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTokenizer.h; sourceTree = "<group>"; };
 		9ABEAD4B15AC1A2C00CF9849 /* SUList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUList.h; sourceTree = "<group>"; };
@@ -82,16 +82,16 @@
 		9ABEAD6415AFED2E00CF9849 /* SUFunction.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUFunction.c; sourceTree = "<group>"; };
 		9ABEAD6615B130A700CF9849 /* SUStatement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUStatement.h; sourceTree = "<group>"; };
 		9ABEAD6715B130B400CF9849 /* SUStatement.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUStatement.c; sourceTree = "<group>"; };
-		9ABEAD6E15B1369300CF9849 /* suessTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = suessTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ABEAD6E15B1369300CF9849 /* seussTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = seussTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD6F15B1369300CF9849 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9ABEAD7115B1369300CF9849 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		9ABEAD7415B1369300CF9849 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		9ABEAD7515B1369300CF9849 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9ABEAD7615B1369300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9ABEAD7915B1369400CF9849 /* suessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "suessTests-Info.plist"; sourceTree = "<group>"; };
+		9ABEAD7915B1369400CF9849 /* seussTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "seussTests-Info.plist"; sourceTree = "<group>"; };
 		9ABEAD7B15B1369400CF9849 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9ABEAD7E15B1369400CF9849 /* SUFunctionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUFunctionTests.m; sourceTree = "<group>"; };
-		9ABEAD8015B1369400CF9849 /* suessTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "suessTests-Prefix.pch"; sourceTree = "<group>"; };
+		9ABEAD8015B1369400CF9849 /* seussTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "seussTests-Prefix.pch"; sourceTree = "<group>"; };
 		9ABEAD8415B13A0900CF9849 /* SUProgram.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUProgram.c; sourceTree = "<group>"; };
 		9ABEAD8615B13A4900CF9849 /* SUProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUProgram.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB7849715BBC46A002CEE23 /* libsuess.a in Frameworks */,
+				9AB7849715BBC46A002CEE23 /* libseuss.a in Frameworks */,
 				9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,8 +128,8 @@
 		9ABEAD1E15A80BB200CF9849 = {
 			isa = PBXGroup;
 			children = (
-				9ABEAD2F15A80BB300CF9849 /* suess */,
-				9ABEAD7715B1369300CF9849 /* suessTests */,
+				9ABEAD2F15A80BB300CF9849 /* seuss */,
+				9ABEAD7715B1369300CF9849 /* seussTests */,
 				9ABEAD2C15A80BB300CF9849 /* Frameworks */,
 				9ABEAD2A15A80BB300CF9849 /* Products */,
 			);
@@ -138,9 +138,9 @@
 		9ABEAD2A15A80BB300CF9849 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9ABEAD2915A80BB300CF9849 /* suess */,
-				9ABEAD6E15B1369300CF9849 /* suessTests.octest */,
-				9AB7848915BBC406002CEE23 /* libsuess.a */,
+				9ABEAD2915A80BB300CF9849 /* seuss */,
+				9ABEAD6E15B1369300CF9849 /* seussTests.octest */,
+				9AB7848915BBC406002CEE23 /* libseuss.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,23 +156,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9ABEAD2F15A80BB300CF9849 /* suess */ = {
+		9ABEAD2F15A80BB300CF9849 /* seuss */ = {
 			isa = PBXGroup;
 			children = (
 				9ABEAD3015A80BB300CF9849 /* main.m */,
 				9ABEAD4415A8175700CF9849 /* Parser */,
-				9ABEAD3415A80BB300CF9849 /* suess.1 */,
+				9ABEAD3415A80BB300CF9849 /* seuss.1 */,
 				9ABEAD3215A80BB300CF9849 /* Supporting Files */,
-				9ABEAD3B15A80C0200CF9849 /* sample.suess */,
-				9AAA83AA15B8FF310010E810 /* madlib.suess */,
+				9ABEAD3B15A80C0200CF9849 /* sample.seuss */,
+				9AAA83AA15B8FF310010E810 /* madlib.seuss */,
 			);
-			path = suess;
+			path = seuss;
 			sourceTree = "<group>";
 		};
 		9ABEAD3215A80BB300CF9849 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9ABEAD3315A80BB300CF9849 /* suess-Prefix.pch */,
+				9ABEAD3315A80BB300CF9849 /* seuss-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 		9ABEAD5D15AEBB2700CF9849 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				9AB7848415BBC021002CEE23 /* Suess.h */,
+				9AB7848415BBC021002CEE23 /* Seuss.h */,
 				9ABEAD5215AD274D00CF9849 /* SUType.h */,
 				9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */,
 				9ABEAD4B15AC1A2C00CF9849 /* SUList.h */,
@@ -243,21 +243,21 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		9ABEAD7715B1369300CF9849 /* suessTests */ = {
+		9ABEAD7715B1369300CF9849 /* seussTests */ = {
 			isa = PBXGroup;
 			children = (
 				9ABEAD7E15B1369400CF9849 /* SUFunctionTests.m */,
 				9ABEAD7815B1369400CF9849 /* Supporting Files */,
 			);
-			path = suessTests;
+			path = seussTests;
 			sourceTree = "<group>";
 		};
 		9ABEAD7815B1369400CF9849 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9ABEAD7915B1369400CF9849 /* suessTests-Info.plist */,
+				9ABEAD7915B1369400CF9849 /* seussTests-Info.plist */,
 				9ABEAD7A15B1369400CF9849 /* InfoPlist.strings */,
-				9ABEAD8015B1369400CF9849 /* suessTests-Prefix.pch */,
+				9ABEAD8015B1369400CF9849 /* seussTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,9 +275,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9AB7848815BBC406002CEE23 /* libsuess */ = {
+		9AB7848815BBC406002CEE23 /* libseuss */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9AB7848A15BBC406002CEE23 /* Build configuration list for PBXNativeTarget "libsuess" */;
+			buildConfigurationList = 9AB7848A15BBC406002CEE23 /* Build configuration list for PBXNativeTarget "libseuss" */;
 			buildPhases = (
 				9AB7848515BBC406002CEE23 /* Sources */,
 				9AB7848615BBC406002CEE23 /* Frameworks */,
@@ -287,14 +287,14 @@
 			);
 			dependencies = (
 			);
-			name = libsuess;
-			productName = libsuess;
-			productReference = 9AB7848915BBC406002CEE23 /* libsuess.a */;
+			name = libseuss;
+			productName = libseuss;
+			productReference = 9AB7848915BBC406002CEE23 /* libseuss.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9ABEAD2815A80BB300CF9849 /* suess */ = {
+		9ABEAD2815A80BB300CF9849 /* seuss */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9ABEAD3815A80BB300CF9849 /* Build configuration list for PBXNativeTarget "suess" */;
+			buildConfigurationList = 9ABEAD3815A80BB300CF9849 /* Build configuration list for PBXNativeTarget "seuss" */;
 			buildPhases = (
 				9ABEAD2515A80BB300CF9849 /* Sources */,
 				9ABEAD2615A80BB300CF9849 /* Frameworks */,
@@ -305,14 +305,14 @@
 			dependencies = (
 				9AB7849915BBC471002CEE23 /* PBXTargetDependency */,
 			);
-			name = suess;
-			productName = suess;
-			productReference = 9ABEAD2915A80BB300CF9849 /* suess */;
+			name = seuss;
+			productName = seuss;
+			productReference = 9ABEAD2915A80BB300CF9849 /* seuss */;
 			productType = "com.apple.product-type.tool";
 		};
-		9ABEAD6D15B1369300CF9849 /* suessTests */ = {
+		9ABEAD6D15B1369300CF9849 /* seussTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9ABEAD8115B1369400CF9849 /* Build configuration list for PBXNativeTarget "suessTests" */;
+			buildConfigurationList = 9ABEAD8115B1369400CF9849 /* Build configuration list for PBXNativeTarget "seussTests" */;
 			buildPhases = (
 				9ABEAD6915B1369300CF9849 /* Sources */,
 				9ABEAD6A15B1369300CF9849 /* Frameworks */,
@@ -323,9 +323,9 @@
 			);
 			dependencies = (
 			);
-			name = suessTests;
-			productName = suessTests;
-			productReference = 9ABEAD6E15B1369300CF9849 /* suessTests.octest */;
+			name = seussTests;
+			productName = seussTests;
+			productReference = 9ABEAD6E15B1369300CF9849 /* seussTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -337,7 +337,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Cory Kilger";
 			};
-			buildConfigurationList = 9ABEAD2315A80BB200CF9849 /* Build configuration list for PBXProject "suess" */;
+			buildConfigurationList = 9ABEAD2315A80BB200CF9849 /* Build configuration list for PBXProject "seuss" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -349,9 +349,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9ABEAD2815A80BB300CF9849 /* suess */,
-				9AB7848815BBC406002CEE23 /* libsuess */,
-				9ABEAD6D15B1369300CF9849 /* suessTests */,
+				9ABEAD2815A80BB300CF9849 /* seuss */,
+				9AB7848815BBC406002CEE23 /* libseuss */,
+				9ABEAD6D15B1369300CF9849 /* seussTests */,
 			);
 		};
 /* End PBXProject section */
@@ -422,7 +422,7 @@
 /* Begin PBXTargetDependency section */
 		9AB7849915BBC471002CEE23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9AB7848815BBC406002CEE23 /* libsuess */;
+			target = 9AB7848815BBC406002CEE23 /* libseuss */;
 			targetProxy = 9AB7849815BBC471002CEE23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -444,7 +444,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = suess;
+				PRODUCT_NAME = seuss;
 				SDKROOT = "";
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 			};
@@ -455,7 +455,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = suess;
+				PRODUCT_NAME = seuss;
 				SDKROOT = "";
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 			};
@@ -513,7 +513,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "suess/suess-Prefix.pch";
+				GCC_PREFIX_HEADER = "seuss/seuss-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -524,7 +524,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "suess/suess-Prefix.pch";
+				GCC_PREFIX_HEADER = "seuss/seuss-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -535,8 +535,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "suessTests/suessTests-Prefix.pch";
-				INFOPLIST_FILE = "suessTests/suessTests-Info.plist";
+				GCC_PREFIX_HEADER = "seussTests/seussTests-Prefix.pch";
+				INFOPLIST_FILE = "seussTests/seussTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -547,8 +547,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "suessTests/suessTests-Prefix.pch";
-				INFOPLIST_FILE = "suessTests/suessTests-Info.plist";
+				GCC_PREFIX_HEADER = "seussTests/seussTests-Prefix.pch";
+				INFOPLIST_FILE = "seussTests/seussTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -557,7 +557,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9AB7848A15BBC406002CEE23 /* Build configuration list for PBXNativeTarget "libsuess" */ = {
+		9AB7848A15BBC406002CEE23 /* Build configuration list for PBXNativeTarget "libseuss" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9AB7848B15BBC406002CEE23 /* Debug */,
@@ -566,7 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9ABEAD2315A80BB200CF9849 /* Build configuration list for PBXProject "suess" */ = {
+		9ABEAD2315A80BB200CF9849 /* Build configuration list for PBXProject "seuss" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9ABEAD3615A80BB300CF9849 /* Debug */,
@@ -575,7 +575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9ABEAD3815A80BB300CF9849 /* Build configuration list for PBXNativeTarget "suess" */ = {
+		9ABEAD3815A80BB300CF9849 /* Build configuration list for PBXNativeTarget "seuss" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9ABEAD3915A80BB300CF9849 /* Debug */,
@@ -584,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9ABEAD8115B1369400CF9849 /* Build configuration list for PBXNativeTarget "suessTests" */ = {
+		9ABEAD8115B1369400CF9849 /* Build configuration list for PBXNativeTarget "seussTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9ABEAD8215B1369400CF9849 /* Debug */,
