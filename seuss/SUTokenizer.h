@@ -41,5 +41,6 @@ struct seuss_string * SUTokenGetFile(SUToken * token);
 unsigned int SUTokenGetLine(SUToken * token);
 
 struct seuss_list * SUTokenizeFile(struct seuss_string * filename);
+struct seuss_list * SUTokenizeData(const char * data, long filesize, struct seuss_string * filename);
 
 #endif

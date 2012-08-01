@@ -70,17 +70,28 @@ SUList * SUTokenizeFile(SUString * filename) {
     // Allocate memory for file
     char * buffer = malloc(sizeof(char) * filesize);
     if (buffer == NULL) {
-        fputs("Memory error", stderr);
-        exit(2);
+        // TODO: error
+        return NULL;
     }
     
     // Read file
     size_t result = fread(buffer, 1, filesize, file);
     if (result != filesize) {
-        fputs("Reading error", stderr);
-        exit(3);
+        // TODO: error
+        return NULL;
     }
     
+    // Tokenize
+    SUList * tokens = SUTokenizeData(buffer, filesize, filename);
+    
+    // Cleanup
+    fclose(file);
+    free(buffer);
+    
+    return tokens;
+}
+
+SUList * SUTokenizeData(const char * buffer, long filesize, SUString * filename) {
     // Parse
     unsigned int line = 1;
     SUList * tokens = SUListCreate();
@@ -91,11 +102,11 @@ SUList * SUTokenizeFile(SUString * filename) {
             case '\n': {
                 line++;
             } break;
-            
+                
             case '+': {
                 token = SUTokenCreate(SUTokenTypePlus, "+", filename, line);
             } break;
-            
+                
             case '-': {
                 token = SUTokenCreate(SUTokenTypeMinus, "-", filename, line);
             } break;
@@ -127,7 +138,7 @@ SUList * SUTokenizeFile(SUString * filename) {
             case '.': {
                 token = SUTokenCreate(SUTokenTypePeriod, ".", filename, line);
             } break;    
-            
+                
             default: {
                 // space
                 if (isspace(character)) {
@@ -135,31 +146,31 @@ SUList * SUTokenizeFile(SUString * filename) {
                 }
                 
                 /* Disabling true and false for now. These will likely become predefined variables instead.
-                
-                // true
-                if ((character == 't' || character == 'T') && i+3 < filesize) {
-                    char value[4];
-                    for (long j = 0; j < 4; j++)
-                        value[j] = tolower(buffer[i+j]);
-                    if (strncmp("true", value, 4) == 0) {
-                        token = SUTokenCreate(SUTokenTypeTrue, "true", filename, line);
-                        i += 3;
-                        break;
-                    }
-                }
-                
-                
-                // false
-                if ((character == 'f' || character == 'F') && i+4 < filesize) {
-                    char value[5];
-                    for (long j = 0; j < 5; j++)
-                        value[j] = tolower(buffer[i+j]);
-                    if (strncmp("false", value, 5) == 0) {
-                        token = SUTokenCreate(SUTokenTypeFalse, "false", filename, line);
-                        i += 4;
-                        break;
-                    }
-                }
+                 
+                 // true
+                 if ((character == 't' || character == 'T') && i+3 < filesize) {
+                 char value[4];
+                 for (long j = 0; j < 4; j++)
+                 value[j] = tolower(buffer[i+j]);
+                 if (strncmp("true", value, 4) == 0) {
+                 token = SUTokenCreate(SUTokenTypeTrue, "true", filename, line);
+                 i += 3;
+                 break;
+                 }
+                 }
+                 
+                 
+                 // false
+                 if ((character == 'f' || character == 'F') && i+4 < filesize) {
+                 char value[5];
+                 for (long j = 0; j < 5; j++)
+                 value[j] = tolower(buffer[i+j]);
+                 if (strncmp("false", value, 5) == 0) {
+                 token = SUTokenCreate(SUTokenTypeFalse, "false", filename, line);
+                 i += 4;
+                 break;
+                 }
+                 }
                  
                  */
                 
@@ -249,10 +260,6 @@ SUList * SUTokenizeFile(SUString * filename) {
             SURelease(token);
         }
     }
-    
-    // Cleanup
-    fclose(file);
-    free(buffer);
     
     return tokens;
 }
