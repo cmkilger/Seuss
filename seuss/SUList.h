@@ -27,4 +27,8 @@ void SUListInsertValue(SUList * list, SUTypeRef value, unsigned int index);
 SUList * SUListCreateSublistWithRange(SUList * list, SURange range);
 struct seuss_iterator * SUListCreateIterator(SUList * list);
 
+#ifdef NS_BLOCKS_AVAILABLE
+void SUListEnumerateWithBlock(SUList * list, void(^block)(SUTypeRef value, unsigned int index, int * stop));
+#endif
+
 #endif

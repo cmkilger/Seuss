@@ -145,3 +145,17 @@ SUList * SUListCreateSublistWithRange(SUList * list, SURange range) {
 SUIterator * SUListCreateIterator(SUList * list) {
     return SUIteratorCreateWithList(list);
 }
+
+#ifdef NS_BLOCKS_AVAILABLE
+void SUListEnumerateWithBlock(SUList * list, void(^block)(SUTypeRef value, unsigned int index, int * stop)) {
+    int stop = 0;
+    unsigned int index = 0;
+    SUListNode * node = list->head;
+    while (node) {
+        block(node->value, index++, &stop);
+        if (stop)
+            return;
+        node = node->next;
+    }
+}
+#endif
