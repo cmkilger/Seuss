@@ -1,5 +1,4 @@
-CC = cc
-CFLAGS = -Wall -std=c99
+CFLAGS = -O3 -Wall -std=c99
 
 BUILD_DIR = build
 EXE_FILE = $(BUILD_DIR)/bin/seuss
