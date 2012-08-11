@@ -56,7 +56,6 @@
 		9A3E362815B7CEA200C3C268 /* SUError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUError.c; sourceTree = "<group>"; };
 		9A3E363A15BA405200C3C268 /* SUVariable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUVariable.h; sourceTree = "<group>"; };
 		9A3E363C15BA406100C3C268 /* SUVariable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUVariable.c; sourceTree = "<group>"; };
-		9AAA83AA15B8FF310010E810 /* madlib.seuss */ = {isa = PBXFileReference; lastKnownFileType = text; path = madlib.seuss; sourceTree = SOURCE_ROOT; };
 		9AB7848415BBC021002CEE23 /* Seuss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seuss.h; sourceTree = "<group>"; };
 		9AB7848915BBC406002CEE23 /* libseuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libseuss.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2915A80BB300CF9849 /* seuss */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = seuss; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +63,6 @@
 		9ABEAD3015A80BB300CF9849 /* seuss.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = seuss.c; sourceTree = "<group>"; };
 		9ABEAD3315A80BB300CF9849 /* seuss-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "seuss-Prefix.pch"; sourceTree = "<group>"; };
 		9ABEAD3415A80BB300CF9849 /* seuss.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = seuss.1; sourceTree = "<group>"; };
-		9ABEAD3B15A80C0200CF9849 /* sample.seuss */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.seuss; sourceTree = SOURCE_ROOT; };
 		9ABEAD4515AA99BC00CF9849 /* SUTokenizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SUTokenizer.c; sourceTree = "<group>"; };
 		9ABEAD4715AA99CB00CF9849 /* SUTokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUTokenizer.h; sourceTree = "<group>"; };
 		9ABEAD4B15AC1A2C00CF9849 /* SUList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUList.h; sourceTree = "<group>"; };
@@ -163,8 +161,6 @@
 				9ABEAD4415A8175700CF9849 /* Parser */,
 				9ABEAD3415A80BB300CF9849 /* seuss.1 */,
 				9ABEAD3215A80BB300CF9849 /* Supporting Files */,
-				9ABEAD3B15A80C0200CF9849 /* sample.seuss */,
-				9AAA83AA15B8FF310010E810 /* madlib.seuss */,
 			);
 			path = seuss;
 			sourceTree = "<group>";
