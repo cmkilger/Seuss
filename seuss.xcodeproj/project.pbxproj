@@ -19,7 +19,7 @@
 		9AB7849615BBC43A002CEE23 /* SUVariable.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A3E363C15BA406100C3C268 /* SUVariable.c */; };
 		9AB7849715BBC46A002CEE23 /* libseuss.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB7848915BBC406002CEE23 /* libseuss.a */; };
 		9ABEAD2E15A80BB300CF9849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD2D15A80BB300CF9849 /* Foundation.framework */; };
-		9ABEAD3115A80BB300CF9849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* main.m */; };
+		9ABEAD3115A80BB300CF9849 /* seuss.c in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEAD3015A80BB300CF9849 /* seuss.c */; };
 		9ABEAD3515A80BB300CF9849 /* seuss.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ABEAD3415A80BB300CF9849 /* seuss.1 */; };
 		9ABEAD7015B1369300CF9849 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD6F15B1369300CF9849 /* SenTestingKit.framework */; };
 		9ABEAD7215B1369300CF9849 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ABEAD7115B1369300CF9849 /* Cocoa.framework */; };
@@ -61,7 +61,7 @@
 		9AB7848915BBC406002CEE23 /* libseuss.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libseuss.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2915A80BB300CF9849 /* seuss */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = seuss; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ABEAD2D15A80BB300CF9849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9ABEAD3015A80BB300CF9849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9ABEAD3015A80BB300CF9849 /* seuss.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = seuss.c; sourceTree = "<group>"; };
 		9ABEAD3315A80BB300CF9849 /* seuss-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "seuss-Prefix.pch"; sourceTree = "<group>"; };
 		9ABEAD3415A80BB300CF9849 /* seuss.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = seuss.1; sourceTree = "<group>"; };
 		9ABEAD3B15A80C0200CF9849 /* sample.seuss */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample.seuss; sourceTree = SOURCE_ROOT; };
@@ -159,7 +159,7 @@
 		9ABEAD2F15A80BB300CF9849 /* seuss */ = {
 			isa = PBXGroup;
 			children = (
-				9ABEAD3015A80BB300CF9849 /* main.m */,
+				9ABEAD3015A80BB300CF9849 /* seuss.c */,
 				9ABEAD4415A8175700CF9849 /* Parser */,
 				9ABEAD3415A80BB300CF9849 /* seuss.1 */,
 				9ABEAD3215A80BB300CF9849 /* Supporting Files */,
@@ -405,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ABEAD3115A80BB300CF9849 /* main.m in Sources */,
+				9ABEAD3115A80BB300CF9849 /* seuss.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,9 +460,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				EXECUTABLE_PREFIX = lib;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NS_BLOCKS_AVAILABLE,
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BLOCKS_AVAILABLE;
 				PRODUCT_NAME = seuss;
 				SDKROOT = "";
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
