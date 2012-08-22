@@ -17,7 +17,7 @@ clean :
 
 install : all
 	cp $(EXE_FILE) /usr/bin/seuss
-	cp $(LIB_FILE) /usr/lib/seuss
+	cp $(LIB_FILE) /usr/lib/libseuss.a
 	cp -r $(INC_DIR) /usr/include/Seuss
 
 bin : $(EXE_FILE)
